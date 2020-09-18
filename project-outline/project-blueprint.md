@@ -31,7 +31,16 @@
 * Pair Programming: Back End
 
   ### Github Project
-    * To Do = Minimum Viable Demo
+    * Front End Mockups
+    * Create schemas and seeds for database
+    * Set up routes using project-blueprint
+    * Set up HTML/SCSS using Front End mockups
+      * Home Page
+      * Take Quiz
+      * Results
+      * Make Quiz
+    * Set up queries from database to render to routes
+      * Query for all public quiz 
 
   ### Database
     ElephantSQL
