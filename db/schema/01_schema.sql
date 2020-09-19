@@ -15,7 +15,6 @@ CREATE TABLE quizzes (
   title VARCHAR(255) NOT NULL,
   category VARCHAR(255) NOT NULL,
   description TEXT DEFAULT 'No description',
-  is_private BOOLEAN DEFAULT FALSE,
   is_unlisted BOOLEAN DEFAULT FALSE
 );
 
