@@ -25,6 +25,10 @@ app.use("/styles", sass({
   outputStyle: 'expanded'
 }));
 app.use(express.static("public"));
+app.use(cookieSession({
+  name: 'cookieSession',
+  keys: ['random'],
+}));
 
 const usersRoutes = require("./routes/users");
 const quizRoutes = require("./routes/quiz");
@@ -38,6 +42,11 @@ app.get("/", (req, res) => {
   .then((quizzes) => {
     res.render("index", {quizzes});
   });
+});
+app.get("/login/:user", (req, res) => {
+  // Pass in db info as templatevars
+  req.session.user = req.params.user;
+  res.redirect('/');
 });
 
 app.listen(PORT, () => {

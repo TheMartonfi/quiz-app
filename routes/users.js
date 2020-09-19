@@ -26,10 +26,16 @@ module.exports = (db, body) => {
   router.get("/:id/quiz/:id2/delete", (req, res) => {
     // Render ejs file
       // Pass in db info via queries
-    queries.deleteQuiz(db, {quiz_id: req.params.id2})
-    .then((quizzes) => {
+    if(req.session.user === req.params.id){
+      queries.deleteQuiz(db, {quiz_id: req.params.id2})
+      .then((quizzes) => {
+        console.log('Another one bites the dust...')
+        res.redirect('/');
+      });
+    } else {
+      console.log('fail')
       res.redirect('/');
-    });
+    }
   });
 
   return router;
