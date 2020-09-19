@@ -10,12 +10,25 @@ const getAllPublicQuizzes = function(db){
 }
 exports.getAllPublicQuizzes = getAllPublicQuizzes;
 
+//Returns a quiz object
+const getQuiz = function(db, options){
+  return db.query(`
+  SELECT title, category, description, COUNT(results.*) as times_played, AVG(quiz_rating) as average_rating
+  FROM quizzes
+  JOIN results ON quizzes.id = results.quiz_id
+  WHERE quizzes.id = ${options.id}
+  GROUP BY title, category, description;`)
+  .then(res => res.rows[0]);
+}
+exports.getQuiz = getQuiz;
+
 //Returns an array of results
 const getQuizResults = function(db, options){
   let queryString = `
-  SELECT result, time_spent, quiz_rating, title, category, description
+  SELECT result, users.username, time_spent, quiz_rating, title, category, description
   FROM results
-  JOIN quizzes ON quiz_id = quizzes.id`;
+  JOIN quizzes ON quiz_id = quizzes.id
+  JOIN users ON user_id = users.id`;
   const queryOptions = []
 
   if(options.quiz_id){
