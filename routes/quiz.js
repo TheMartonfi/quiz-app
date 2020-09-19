@@ -2,17 +2,12 @@ const express = require('express');
 const router  = express.Router();
 
 module.exports = (db) => {
-  router.get("/:id/quiz/new", (req, res) => {
+  router.get("/:id", (req, res) => {
     // Render ejs file
       // Pass in db info via queries
   });
 
-  router.get("/:id/quiz", (req, res) => {
-    // Render ejs file
-      // Pass in db info via queries
-  });
-
-  router.get("/:id/quiz/:id/delete", (req, res) => {
+  router.get("/:id/result/:id", (req, res) => {
     // Render ejs file
       // Pass in db info via queries
   });
