@@ -8,6 +8,7 @@ const cookieSession = require("cookie-session");
 const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
+const queries    = require('./db/queries')
 
 const { Pool } = require('pg');
 const dbParams = require('./lib/db.js');
@@ -33,7 +34,10 @@ app.use("/quiz", quizRoutes(db));
 
 app.get("/", (req, res) => {
   // Pass in db info as templatevars
-  res.render("index");
+  queries.getAllPublicQuizzes(db)
+  .then((quizzes) => {
+    res.render("index", {quizzes});
+  });
 });
 
 app.listen(PORT, () => {
