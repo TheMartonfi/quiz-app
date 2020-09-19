@@ -36,15 +36,16 @@ const quizRoutes = require("./routes/quiz");
 app.use("/users", usersRoutes(db));
 app.use("/quiz", quizRoutes(db));
 
+// Home page
 app.get("/", (req, res) => {
-  // Pass in db info as templatevars
   queries.getAllPublicQuizzes(db)
   .then((quizzes) => {
     res.render("home", {quizzes});
   });
 });
+
+// Hacker login route
 app.get("/login/:user", (req, res) => {
-  // Pass in db info as templatevars
   req.session.user = req.params.user;
   res.redirect('/');
 });

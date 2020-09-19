@@ -3,29 +3,27 @@ const router  = express.Router();
 const queries = require('../db/queries');
 
 module.exports = (db, body) => {
+
+  // Change this to a post request to insert new quiz
   router.get("/:id/quiz/new", (req, res) => {
-    // Render ejs file
-      // Pass in db info via queries
     queries.insertNewQuiz(db, req.body)
     .then((quizzes) => {
       console.log(quizzes)
-      res.render("index", {quizzes});
+      res.render("make-quiz", {quizzes});
     });
   });
 
+  // This route brings you to the all quizzes page and allows you to delete quizzes
   router.get("/:id/quiz", (req, res) => {
-    // Render ejs file
-      // Pass in db info via queries
     queries.getAllUsersQuizzes(db, {id: req.params.id})
     .then((quizzes) => {
       console.log(quizzes)
-      res.render("index", {quizzes});
+      res.render("delete-quiz", {quizzes});
     });
   });
 
+  // Change this to a post request to delete
   router.get("/:id/quiz/:id2/delete", (req, res) => {
-    // Render ejs file
-      // Pass in db info via queries
     if(req.session.user === req.params.id){
       queries.deleteQuiz(db, {quiz_id: req.params.id2})
       .then((quizzes) => {
@@ -37,6 +35,8 @@ module.exports = (db, body) => {
       res.redirect('/');
     }
   });
+
+  // We need a new GET route to show to make-quiz page
 
   return router;
 };
