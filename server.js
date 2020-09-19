@@ -33,7 +33,7 @@ app.use("/quiz", quizRoutes(db));
 
 app.get("/", (req, res) => {
   // Pass in db info as templatevars
-  res.render("home");
+  res.render("take-quiz");
 });
 
 app.listen(PORT, () => {
