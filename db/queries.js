@@ -1,4 +1,4 @@
-
+//Returns an array of quizzes
 const allPublicQuizzes = function(db){
   return db.query(`
   SELECT title, category, description, COUNT(results.*) as times_played, AVG(quiz_rating) as average_rating
@@ -10,6 +10,7 @@ const allPublicQuizzes = function(db){
 }
 exports.allPublicQuizzes = allPublicQuizzes;
 
+//Returns an array of results
 const quizResults = function(db, options){
   let queryString = `
   SELECT result, time_spent, quiz_rating, title, category, description
@@ -39,6 +40,7 @@ const quizResults = function(db, options){
 }
 exports.quizResults = quizResults;
 
+//Inserts and returns one new quiz
 const insertNewQuiz = function(db, options){
   return db.query(`
   INSERT INTO quizzes (owner_id, title, category, description, is_unlisted)
@@ -48,3 +50,14 @@ const insertNewQuiz = function(db, options){
   .then(res => res.rows[0])
 }
 exports.insertNewQuiz = insertNewQuiz;
+
+//Inserts and returns one new question
+const insertNewQuestion = function(db, options){
+  return db.query(`
+  INSERT INTO questions_and_answers (quiz_id, question, answer_1, answer_2, answer_3, answer_correct)
+  VALUES ($1, $2, $3, $4, $5, $6)
+  RETURNING *`,
+  [options.quiz_id, options.question, options.answer_1, options.answer_2, options.answer_3, options.answer_correct])
+  .then(res => res.rows[0])
+}
+exports.insertNewQuestion = insertNewQuestion;
