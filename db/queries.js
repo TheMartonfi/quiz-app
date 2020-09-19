@@ -29,7 +29,7 @@ const getQuizResults = function(db, options){
   FROM results
   JOIN quizzes ON quiz_id = quizzes.id
   JOIN users ON user_id = users.id`;
-  const queryOptions = []
+  const queryOptions = [];
 
   if(options.quiz_id){
     queryString += `
@@ -60,7 +60,7 @@ const insertNewQuiz = function(db, options){
   VALUES ($1, $2, $3, $4, $5)
   RETURNING *`,
   [options.owner_id, options.title, options.category, options.description, options.is_unlisted])
-  .then(res => res.rows[0])
+  .then(res => res.rows[0]);
 }
 exports.insertNewQuiz = insertNewQuiz;
 
@@ -71,7 +71,7 @@ const insertNewQuestion = function(db, options){
   VALUES ($1, $2, $3, $4, $5, $6)
   RETURNING *`,
   [options.quiz_id, options.question, options.answer_1, options.answer_2, options.answer_3, options.answer_correct])
-  .then(res => res.rows[0])
+  .then(res => res.rows[0]);
 }
 exports.insertNewQuestion = insertNewQuestion;
 
@@ -82,6 +82,6 @@ const insertNewResult = function(db, options){
   VALUES ($1, $2, $3, $4, $5)
   RETURNING *`,
   [options.quiz_id, options.user_id, options.result, options.time_spent, options.quiz_rating,])
-  .then(res => res.rows[0])
+  .then(res => res.rows[0]);
 }
 exports.insertNewResult = insertNewResult;
