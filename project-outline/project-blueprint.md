@@ -40,7 +40,11 @@
       * Results
       * Make Quiz
     * Set up queries from database to render to routes
-      * Query for all public quiz 
+      * Query for all public quizzes
+      * Query for specific quiz
+      * Query to insert new quiz
+      * Query to get results from specific quiz of specific user
+      * Query to insert results from specific quiz of specific user
 
   ### Database
     ElephantSQL
