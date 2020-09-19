@@ -1,5 +1,5 @@
 //Returns an array of quizzes
-const allPublicQuizzes = function(db){
+const getAllPublicQuizzes = function(db){
   return db.query(`
   SELECT title, category, description, COUNT(results.*) as times_played, AVG(quiz_rating) as average_rating
   FROM quizzes
@@ -8,10 +8,10 @@ const allPublicQuizzes = function(db){
   GROUP BY title, category, description;`)
   .then(res => res.rows);
 }
-exports.allPublicQuizzes = allPublicQuizzes;
+exports.getAllPublicQuizzes = getAllPublicQuizzes;
 
 //Returns an array of results
-const quizResults = function(db, options){
+const getQuizResults = function(db, options){
   let queryString = `
   SELECT result, time_spent, quiz_rating, title, category, description
   FROM results
@@ -38,9 +38,9 @@ const quizResults = function(db, options){
   return db.query(queryString, queryOptions)
   .then(res => res.rows);
 }
-exports.quizResults = quizResults;
+exports.getQuizResults = getQuizResults;
 
-//Inserts and returns one new quiz
+//Inserts and returns one new quiz object
 const insertNewQuiz = function(db, options){
   return db.query(`
   INSERT INTO quizzes (owner_id, title, category, description, is_unlisted)
@@ -51,7 +51,7 @@ const insertNewQuiz = function(db, options){
 }
 exports.insertNewQuiz = insertNewQuiz;
 
-//Inserts and returns one new question
+//Inserts and returns one new question object
 const insertNewQuestion = function(db, options){
   return db.query(`
   INSERT INTO questions_and_answers (quiz_id, question, answer_1, answer_2, answer_3, answer_correct)
@@ -61,3 +61,14 @@ const insertNewQuestion = function(db, options){
   .then(res => res.rows[0])
 }
 exports.insertNewQuestion = insertNewQuestion;
+
+//Inserts and returns one new question object
+const insertNewResult = function(db, options){
+  return db.query(`
+  INSERT INTO results (quiz_id, user_id, result, time_spent, quiz_rating)
+  VALUES ($1, $2, $3, $4, $5)
+  RETURNING *`,
+  [options.quiz_id, options.user_id, options.result, options.time_spent, options.quiz_rating,])
+  .then(res => res.rows[0])
+}
+exports.insertNewResult = insertNewResult;
