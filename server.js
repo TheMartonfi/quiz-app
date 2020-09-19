@@ -40,7 +40,7 @@ app.get("/", (req, res) => {
   // Pass in db info as templatevars
   queries.getAllPublicQuizzes(db)
   .then((quizzes) => {
-    res.render("make-quiz-questions", {quizzes});
+    res.render("home", {quizzes});
   });
 });
 app.get("/login/:user", (req, res) => {
