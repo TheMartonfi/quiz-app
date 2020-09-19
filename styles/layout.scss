@@ -1,6 +1,14 @@
 $primary-color: #3a52db;
 $secondary-color: #677eff;
 
+#quiz-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
 
-
+#quiz-container > * {
+  width: 300px;
+  height: 300px
+}
 
