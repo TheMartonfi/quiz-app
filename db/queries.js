@@ -1,3 +1,4 @@
+
 const allPublicQuizzes = function(db){
   return db.query(`
   SELECT title, category, description, COUNT(results.*) as times_played, AVG(quiz_rating) as average_rating
@@ -7,5 +8,33 @@ const allPublicQuizzes = function(db){
   GROUP BY title, category, description;`)
   .then(res => res.rows);
 }
+exports.allPublicQuizzes = allPublicQuizzes;
 
-module.exports = allPublicQuizzes;
+const quizResults = function(db, options){
+  let queryString = `
+  SELECT result, time_spent, quiz_rating, title, category, description
+  FROM results
+  JOIN quizzes ON quiz_id = quizzes.id`;
+  const queryOptions = []
+
+  if(options.quiz_id){
+    queryString += `
+    AND quiz_id = $1`;
+    queryOptions.push(options.quiz_id);
+  } else {
+    if(options.title){
+      queryOptions.push(`('%${options.title}%')`);
+      queryString += `
+      WHERE title LIKE $${queryOptions.length}`;
+    }
+    // if(options.category){
+    //   queryOptions.push(options.category);
+    //   queryString += `
+    //   AND category = '$${queryOptions.length}'`;
+    // }
+  }
+
+  return db.query(queryString, queryOptions)
+  .then(res => res.rows);
+}
+exports.quizResults = quizResults;
