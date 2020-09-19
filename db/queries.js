@@ -22,6 +22,17 @@ const getQuiz = function(db, options){
 }
 exports.getQuiz = getQuiz;
 
+const getAllUsersQuizzes = function(db, options){
+  return db.query(`
+  SELECT title, category, description
+  FROM quizzes
+  JOIN users ON quizzes.owner_id = users.id
+  WHERE owner_id = $1
+  GROUP BY title, category, description;`, [options.id])
+  .then(res => res.rows);
+}
+exports.getAllUsersQuizzes = getAllUsersQuizzes;
+
 //Returns an array of results
 const getQuizResults = function(db, options){
   let queryString = `
@@ -35,6 +46,10 @@ const getQuizResults = function(db, options){
     queryString += `
     AND quiz_id = $1`;
     queryOptions.push(options.quiz_id);
+  } else if(options.id){
+    queryString += `
+    AND results.id = $1`;
+    queryOptions.push(options.id);
   } else {
     if(options.title){
       queryOptions.push(`%${options.title}%`);
@@ -74,6 +89,25 @@ const insertNewQuestion = function(db, options){
   .then(res => res.rows[0]);
 }
 exports.insertNewQuestion = insertNewQuestion;
+
+//Deletes specific quiz
+const deleteQuiz = function(db, options){
+  return db.query(`
+  DELETE FROM quizzes WHERE id = $1`, [options.quiz_id])
+  .then(res => res.rows);
+}
+exports.deleteQuiz = deleteQuiz;
+
+//Returns a quiz object
+const getQuestions = function(db, options){
+  return db.query(`
+  SELECT question, answer_1, answer_2, answer_3, answer_correct
+  FROM questions_and_answers
+  JOIN quizzes ON questions_and_answers.quiz_id = quizzes.id
+  WHERE quizzes.id = ${options.id};`)
+  .then(res => res.rows);
+}
+exports.getQuestions = getQuestions;
 
 //Inserts and returns one new question object
 const insertNewResult = function(db, options){

@@ -8,6 +8,7 @@ const cookieSession = require("cookie-session");
 const sass       = require("node-sass-middleware");
 const app        = express();
 const morgan     = require('morgan');
+const queries    = require('./db/queries')
 
 const { Pool } = require('pg');
 const dbParams = require('./lib/db.js');
@@ -24,6 +25,10 @@ app.use("/styles", sass({
   outputStyle: 'expanded'
 }));
 app.use(express.static("public"));
+app.use(cookieSession({
+  name: 'cookieSession',
+  keys: ['random'],
+}));
 
 const usersRoutes = require("./routes/users");
 const quizRoutes = require("./routes/quiz");
@@ -33,7 +38,15 @@ app.use("/quiz", quizRoutes(db));
 
 app.get("/", (req, res) => {
   // Pass in db info as templatevars
-  res.render("delete-quiz");
+  queries.getAllPublicQuizzes(db)
+  .then((quizzes) => {
+    res.render("index", {quizzes});
+  });
+});
+app.get("/login/:user", (req, res) => {
+  // Pass in db info as templatevars
+  req.session.user = req.params.user;
+  res.redirect('/');
 });
 
 app.listen(PORT, () => {
