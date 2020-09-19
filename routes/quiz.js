@@ -3,11 +3,13 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/:id", (req, res) => {
-    // Some code here
+    // Render ejs file
+      // Pass in db info via queries
   });
 
   router.get("/:id/result/:id", (req, res) => {
-    // Some code here
+    // Render ejs file
+      // Pass in db info via queries
   });
 
   return router;

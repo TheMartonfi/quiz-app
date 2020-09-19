@@ -3,24 +3,18 @@ const router  = express.Router();
 
 module.exports = (db) => {
   router.get("/:id/quiz/new", (req, res) => {
-    // db.query(`SELECT * FROM users;`)
-    //   .then(data => {
-    //     const users = data.rows;
-    //     res.json({ users });
-    //   })
-    //   .catch(err => {
-    //     res
-    //       .status(500)
-    //       .json({ error: err.message });
-    //   });
+    // Render ejs file
+      // Pass in db info via queries
   });
 
   router.get("/:id/quiz", (req, res) => {
-    // Some code here
+    // Render ejs file
+      // Pass in db info via queries
   });
 
   router.get("/:id/quiz/:id/delete", (req, res) => {
-  // Some code here
+    // Render ejs file
+      // Pass in db info via queries
   });
 
   return router;
