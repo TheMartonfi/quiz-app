@@ -1,0 +1,25 @@
+#take-quiz {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
+}
+
+#take-quiz > * {
+  margin-top: 20px;
+}
+
+#take-quiz > h4 {
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid black;
+}
+
+#take-quiz > h4:hover {
+  @extend %hover;
+}
+
+#take-quiz > h4:active {
+  @extend %click
+}
