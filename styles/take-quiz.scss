@@ -1,9 +1,5 @@
 #take-quiz {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  align-content: center;
-  align-items: center;
+  @extend %flex-center;
 }
 
 #take-quiz > * {
