@@ -12,7 +12,7 @@ CREATE TABLE users (
 CREATE TABLE quizzes (
   id SERIAL PRIMARY KEY NOT NULL,
   owner_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
-  title VARCHAR(255) NOT NULL.
+  title VARCHAR(255) NOT NULL,
   category VARCHAR(255) NOT NULL,
   description TEXT DEFAULT 'No description',
   is_private BOOLEAN DEFAULT FALSE,
@@ -26,7 +26,7 @@ CREATE TABLE questions_and_answers (
   answer_1 VARCHAR(255) NOT NULL,
   answer_2 VARCHAR(255) NOT NULL,
   answer_3 VARCHAR(255) NOT NULL,
-  answer_correct VARCHAR(255) NOT NULL,
+  answer_correct VARCHAR(255) NOT NULL
 );
 
 CREATE TABLE results (
@@ -37,4 +37,3 @@ CREATE TABLE results (
   time_spent TIMESTAMP,
   quiz_rating SMALLINT DEFAULT 0
 );
-
