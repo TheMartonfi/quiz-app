@@ -90,6 +90,14 @@ const insertNewQuestion = function(db, options){
 }
 exports.insertNewQuestion = insertNewQuestion;
 
+//Deletes specific quiz
+const deleteQuiz = function(db, options){
+  return db.query(`
+  DELETE FROM quizzes WHERE id = $1`, [options.quiz_id])
+  .then(res => res.rows);
+}
+exports.deleteQuiz = deleteQuiz;
+
 //Returns a quiz object
 const getQuestions = function(db, options){
   return db.query(`
