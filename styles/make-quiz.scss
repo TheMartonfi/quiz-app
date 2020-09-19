@@ -1,0 +1,7 @@
+#new-quiz-container {
+  @extend %flex-center;
+}
+
+#new-quiz-container > * {
+  margin: 10px;
+}
