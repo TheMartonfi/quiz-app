@@ -16,9 +16,16 @@ module.exports = (db) => {
     });
   });
 
-  router.get("/:id/result/:id", (req, res) => {
+  router.get("/:id/result/:id2", (req, res) => {
     // Render ejs file
       // Pass in db info via queries
+    queries.getQuiz(db, {id: req.params.id})
+    .then((quiz) => {
+      queries.getQuizResults(db, {id: req.params.id2})
+      .then((results) => {
+        res.render("index", {quiz, results});
+      });
+    });
   });
 
   return router;
