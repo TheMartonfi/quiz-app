@@ -3,6 +3,7 @@ $secondary-color: white;
 
 @import "take-quiz.scss";
 @import "results.scss";
+@import "delete-quiz.scss";
 
 %hover {
   cursor: pointer;
@@ -22,13 +23,13 @@ $secondary-color: white;
   align-items: center;
 }
 
-#quiz-container {
+.quiz-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
 
-#quiz-container > * {
+.quiz-container > * {
   width: 600px;
   height: 600px;
   margin: auto;
