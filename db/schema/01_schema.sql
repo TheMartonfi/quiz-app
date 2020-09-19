@@ -1,0 +1,39 @@
+DROP TABLE IF EXISTS users CASCADE;
+DROP TABLE IF EXISTS quizzes CASCADE;
+DROP TABLE IF EXISTS questions_and_answers CASCADE;
+DROP TABLE IF EXISTS results CASCADE;
+
+CREATE TABLE users (
+  id SERIAL PRIMARY KEY NOT NULL,
+  username VARCHAR(255) NOT NULL,
+  password VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE quizzes (
+  id SERIAL PRIMARY KEY NOT NULL,
+  owner_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  title VARCHAR(255) NOT NULL,
+  category VARCHAR(255) NOT NULL,
+  description TEXT DEFAULT 'No description',
+  is_private BOOLEAN DEFAULT FALSE,
+  is_unlisted BOOLEAN DEFAULT FALSE
+);
+
+CREATE TABLE questions_and_answers (
+  id SERIAL PRIMARY KEY NOT NULL,
+  quiz_id INTEGER REFERENCES quizzes(id) ON DELETE CASCADE,
+  question VARCHAR(255) NOT NULL,
+  answer_1 VARCHAR(255) NOT NULL,
+  answer_2 VARCHAR(255) NOT NULL,
+  answer_3 VARCHAR(255) NOT NULL,
+  answer_correct VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE results (
+  id SERIAL PRIMARY KEY NOT NULL,
+  quiz_id INTEGER REFERENCES quizzes(id) ON DELETE CASCADE,
+  user_id INTEGER REFERENCES users(id) ON DELETE CASCADE,
+  result VARCHAR(255) NOT NULL,
+  time_spent TIMESTAMP,
+  quiz_rating SMALLINT DEFAULT 0
+);
