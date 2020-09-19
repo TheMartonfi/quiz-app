@@ -2,10 +2,15 @@ const express = require('express');
 const router  = express.Router();
 const queries = require('../db/queries');
 
-module.exports = (db) => {
+module.exports = (db, body) => {
   router.get("/:id/quiz/new", (req, res) => {
     // Render ejs file
       // Pass in db info via queries
+    queries.insertNewQuiz(db, req.body)
+    .then((quizzes) => {
+      console.log(quizzes)
+      res.render("index", {quizzes});
+    });
   });
 
   router.get("/:id/quiz", (req, res) => {
