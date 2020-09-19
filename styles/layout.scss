@@ -2,6 +2,7 @@ $primary-color: #0026ff;
 $secondary-color: white;
 
 @import "take-quiz.scss";
+@import "results.scss";
 
 %hover {
   cursor: pointer;
