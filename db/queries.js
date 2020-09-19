@@ -38,3 +38,13 @@ const quizResults = function(db, options){
   .then(res => res.rows);
 }
 exports.quizResults = quizResults;
+
+const insertNewQuiz = function(db, options){
+  return db.query(`
+  INSERT INTO quizzes (owner_id, title, category, description, is_unlisted)
+  VALUES ($1, $2, $3, $4, $5)
+  RETURNING *`,
+  [options.owner_id, options.title, options.category, options.description, options.is_unlisted])
+  .then(res => res.rows[0])
+}
+exports.insertNewQuiz = insertNewQuiz;
