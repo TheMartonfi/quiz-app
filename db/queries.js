@@ -23,15 +23,15 @@ const quizResults = function(db, options){
     queryOptions.push(options.quiz_id);
   } else {
     if(options.title){
-      queryOptions.push(`('%${options.title}%')`);
+      queryOptions.push(`%${options.title}%`);
       queryString += `
-      WHERE title LIKE $${queryOptions.length}`;
+      AND quizzes.title LIKE $${queryOptions.length}`;
     }
-    // if(options.category){
-    //   queryOptions.push(options.category);
-    //   queryString += `
-    //   AND category = '$${queryOptions.length}'`;
-    // }
+    if(options.category){
+      queryOptions.push(`${options.category}`);
+      queryString += `
+      AND category = $${queryOptions.length}`;
+    }
   }
 
   return db.query(queryString, queryOptions)
