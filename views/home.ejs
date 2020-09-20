@@ -13,7 +13,7 @@
     <div class="quiz-container">
       <div>
         <h1 class="category">Gaming</h1>
-        <div class="quiz">
+        <!-- <div class="quiz">
           <h4>Zelda Trivia</h4>
           <p>Description</p>
         </div>
@@ -40,7 +40,13 @@
         <div class="quiz">
           <h4>Title</h4>
           <p>Description</p>
-        </div>
+        </div> -->
+        <% for (const quiz of quizzes) { %>
+          <div class="quiz">
+            <h4><%= quiz.title %></h4>
+            <p><%= quiz.description %></p>
+          </div>
+        <% } %>
       </div>
       <div>
         <h1 class="category">Programming</h1>
