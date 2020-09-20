@@ -5,12 +5,17 @@ const queries = require('../db/queries');
 module.exports = (db, body) => {
 
   // Change this to a post request to insert new quiz
-  router.get("/:id/quiz/new", (req, res) => {
-    queries.insertNewQuiz(db, req.body)
+  router.post("/:id/quiz/new", (req, res) => {
+    queries.insertNewQuiz(db, req.body, req.session.user)
     .then((quizzes) => {
       console.log(quizzes)
-      res.render("make-quiz", {quizzes});
+      // res.render("make-quiz", {quizzes});
+      res.redirect(`/quiz/${quizzes.id}/`)
     });
+  });
+
+  router.get("/:id/quiz/new", (req, res) => {
+    res.render("make-quiz");
   });
 
   // This route brings you to the all quizzes page and allows you to delete quizzes

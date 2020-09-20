@@ -3,8 +3,8 @@ const getAllPublicQuizzes = function(db){
   return db.query(`
   SELECT title, category, description, COUNT(results.*) as times_played, AVG(quiz_rating) as average_rating
   FROM quizzes
-  JOIN results ON quizzes.id = results.quiz_id
-  WHERE NOT is_unlisted
+  FULL OUTER JOIN results ON quizzes.id = results.quiz_id
+  WHERE NOT is_unlisted = true
   GROUP BY title, category, description;`)
   .then(res => res.rows);
 }
@@ -69,12 +69,15 @@ const getQuizResults = function(db, options){
 exports.getQuizResults = getQuizResults;
 
 //Inserts and returns one new quiz object
-const insertNewQuiz = function(db, options){
+const insertNewQuiz = function(db, options, id){
+  if(options.is_unlisted !== true){
+    options.is_unlisted = false;
+  }
   return db.query(`
   INSERT INTO quizzes (owner_id, title, category, description, is_unlisted)
   VALUES ($1, $2, $3, $4, $5)
   RETURNING *`,
-  [options.owner_id, options.title, options.category, options.description, options.is_unlisted])
+  [id, options.title, options.category, options.description, options.is_unlisted])
   .then(res => res.rows[0]);
 }
 exports.insertNewQuiz = insertNewQuiz;
