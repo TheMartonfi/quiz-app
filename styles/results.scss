@@ -2,17 +2,22 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
+  font-family: $secondary-font;
 }
 
 .results {
   @extend %flex-center;
-  width: 353px;
+  width: 341px;
   height: 350px;
   margin: 20px;
-  margin-top: 30px;
+  margin-top: 25px;
   border-radius: 5px;
   border: 2px solid black;
   background-color: rgb(233, 233, 233);
+}
+
+.results h1 {
+  font-family: $primary-font;
 }
 
 .results > * {
@@ -22,9 +27,17 @@
 
 .results > button {
   background-color: white;
+  font-weight: bold;
 }
 
 .username  {
   text-align: center;
   margin-top: 20px;
+  font-family: $primary-font;
 }
+
+#result-container {
+  @extend %flex-center;
+  font-family: $secondary-font;
+}
+

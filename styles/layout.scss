@@ -1,5 +1,7 @@
 $primary-color: #0026ff;
 $secondary-color: white;
+$primary-font: 'Anton', sans-serif;
+$secondary-font: 'Rajdhani', sans-serif;
 
 @import "take-quiz.scss";
 @import "results.scss";
@@ -22,6 +24,15 @@ $secondary-color: white;
   flex-wrap: wrap;
   align-content: center;
   align-items: center;
+}
+
+nav h1 {
+  font-family: $primary-font;
+}
+
+nav a {
+  font-weight: bold;
+  font-family: $secondary-font
 }
 
 .quiz-container {
@@ -47,6 +58,7 @@ $secondary-color: white;
   border: 2px solid black;
   color: $secondary-color;
   background-color: $primary-color;
+  font-family: $primary-font;
 }
 
 .quiz {
@@ -55,6 +67,7 @@ $secondary-color: white;
   padding-top: 15px;
   border: 2px solid black;
   background-color: $secondary-color;
+  font-family: $secondary-font;
 }
 
 .quiz:hover {

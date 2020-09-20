@@ -1,9 +1,12 @@
 #new-quiz-container {
   @extend %flex-center;
+  font-family: $secondary-font;
 }
 
 #new-quiz-container > * {
   margin: 10px;
 }
 
-
+#new-quiz-container h1 {
+  font-family: $primary-font;
+}

@@ -15,8 +15,18 @@
   background-color: rgb(233, 233, 233);
 }
 
+.delete h1 {
+  font-family: $primary-font;
+}
+
+.delete h2 {
+  font-family: $secondary-font;
+}
+
 .delete > button {
   background-color: white;
+  font-weight: bold;
+  font-family: $secondary-font;
 }
 
 .delete > * {

@@ -1,5 +1,10 @@
 #take-quiz {
   @extend %flex-center;
+  font-family: $secondary-font;
+}
+
+#take-quiz h1 {
+  font-family: $primary-font;
 }
 
 #take-quiz > * {
@@ -18,4 +23,8 @@
 
 #take-quiz > h4:active {
   @extend %click
+}
+
+#take-quiz > button {
+  font-weight: bold;
 }
