@@ -40,7 +40,7 @@ app.use("/quiz", quizRoutes(db));
 app.get("/", (req, res) => {
   queries.getAllPublicQuizzes(db)
   .then((quizzes) => {
-    res.render("take-quiz", {quizzes});
+    res.render("home", {quizzes});
   });
 });
 
