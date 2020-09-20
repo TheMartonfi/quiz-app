@@ -42,46 +42,88 @@
           <p>Description</p>
         </div> -->
         <% for (const quiz of quizzes) { %>
-          <div class="quiz">
-            <h4><%= quiz.title %></h4>
-            <p><%= quiz.description %></p>
-          </div>
+          <% if (quiz.category === 'Gaming') { %>
+            <div class="quiz">
+              <h4><%= quiz.title %></h4>
+              <p><%= quiz.description %></p>
+            </div>
+          <% } %>
         <% } %>
       </div>
       <div>
         <h1 class="category">Programming</h1>
-        <div class="quiz">
+        <!-- <div class="quiz">
           <h4>Title</h4>
           <p>Description</p>
-        </div>
+        </div> -->
+        <% for (const quiz of quizzes) { %>
+          <% if (quiz.category === 'Programming') { %>
+            <div class="quiz">
+              <h4><%= quiz.title %></h4>
+              <p><%= quiz.description %></p>
+            </div>
+          <% } %>
+        <% } %>
       </div>
       <div>
         <h1 class="category">General</h1>
-        <div class="quiz">
+       <!--  <div class="quiz">
           <h4>Title</h4>
           <p>Description</p>
-        </div>
+        </div> -->
+        <% for (const quiz of quizzes) { %>
+          <% if (quiz.category === 'General') { %>
+            <div class="quiz">
+              <h4><%= quiz.title %></h4>
+              <p><%= quiz.description %></p>
+            </div>
+          <% } %>
+        <% } %>
       </div>
       <div>
         <h1 class="category">Arts</h1>
-        <div class="quiz">
+        <!-- <div class="quiz">
           <h4>Title</h4>
-          <p>Description</p>
-        </div>
+          <p>Description</p> 
+        </div>-->
+        <% for (const quiz of quizzes) { %>
+          <% if (quiz.category === 'Arts') { %>
+            <div class="quiz">
+              <h4><%= quiz.title %></h4>
+              <p><%= quiz.description %></p>
+            </div>
+          <% } %>
+        <% } %>
       </div>
       <div>
         <h1 class="category">History</h1>
-        <div class="quiz">
+        <!-- <div class="quiz">
           <h4>Title</h4>
           <p>Description</p>
-        </div>
+        </div> -->
+        <% for (const quiz of quizzes) { %>
+          <% if (quiz.category === 'History') { %>
+            <div class="quiz">
+              <h4><%= quiz.title %></h4>
+              <p><%= quiz.description %></p>
+            </div>
+          <% } %>
+        <% } %>
       </div>
       <div>
         <h1 class="category">Math</h1>
-        <div class="quiz">
+        <!-- <div class="quiz">
           <h4>Title</h4>
           <p>Description</p>
-        </div>
+        </div> -->
+        <% for (const quiz of quizzes) { %>
+          <% if (quiz.category === 'Math') { %>
+            <div class="quiz">
+              <h4><%= quiz.title %></h4>
+              <p><%= quiz.description %></p>
+            </div>
+          <% } %>
+        <% } %>
       </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
