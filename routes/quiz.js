@@ -10,7 +10,6 @@ module.exports = (db) => {
     .then((quiz) => {
       queries.getQuestions(db, {id: req.params.id})
       .then((questions) => {
-
         res.render("take-quiz", {quiz, questions});
       });
     });
