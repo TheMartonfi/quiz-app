@@ -15,7 +15,7 @@ const getQuiz = function(db, options){
   return db.query(`
   SELECT title, category, description, COUNT(results.*) as times_played, AVG(quiz_rating) as average_rating
   FROM quizzes
-  JOIN results ON quizzes.id = results.quiz_id
+  FULL OUTER JOIN results ON quizzes.id = results.quiz_id
   WHERE quizzes.id = ${options.id}
   GROUP BY title, category, description;`)
   .then(res => res.rows[0]);
