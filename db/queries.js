@@ -24,11 +24,11 @@ exports.getQuiz = getQuiz;
 
 const getAllUsersQuizzes = function(db, options){
   return db.query(`
-  SELECT title, category, description
+  SELECT quizzes.id, title, category, description
   FROM quizzes
   JOIN users ON quizzes.owner_id = users.id
   WHERE owner_id = $1
-  GROUP BY title, category, description;`, [options.id])
+  GROUP BY quizzes.id, title, category, description;`, [options.id])
   .then(res => res.rows);
 }
 exports.getAllUsersQuizzes = getAllUsersQuizzes;

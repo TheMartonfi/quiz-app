@@ -23,7 +23,7 @@
   font-family: $secondary-font;
 }
 
-.delete > button {
+button[class="btn btn-outline-danger"] {
   background-color: white;
   font-weight: bold;
   font-family: $secondary-font;
