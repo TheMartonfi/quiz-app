@@ -9,9 +9,9 @@
     <title>Quiz App</title>
   </head>
   <body>
-    
+
     <%- include('partials/_header') %>
-    <h1><%= results[0].username %>'s results</h1>
+    <h1 class="username"><%= results[0].username %>'s results</h1>
     <div id="results-container">
       <% for (const result of results) { %>
         <div class="results">

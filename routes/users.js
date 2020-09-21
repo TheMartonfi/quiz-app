@@ -8,8 +8,6 @@ module.exports = (db, body) => {
   router.post("/:id/quiz/new", (req, res) => {
     queries.insertNewQuiz(db, req.body, req.session.user)
     .then((quizzes) => {
-      console.log(quizzes)
-      // res.render("make-quiz", {quizzes});
       res.redirect(`/users/${req.session.user}/quiz/${quizzes.id}/question`)
     });
   });
@@ -36,7 +34,6 @@ module.exports = (db, body) => {
   router.post("/:id/quiz/:id2/question", (req, res) => {
     queries.insertNewQuestion(db, req.body)
     .then((question) => {
-      console.log(question);
       res.send(question)
     })
   });
@@ -70,7 +67,8 @@ module.exports = (db, body) => {
     const userId = req.session.user;
     queries.getQuizResults(db, {id: req.params.id2})
     .then((results) => {
-      console.log(userId);
+      // ***********************************************
+      console.log(results);
       res.render("results", {results, userId});
     });
   });

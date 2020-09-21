@@ -42,7 +42,7 @@ module.exports = (db) => {
     } else {
       score = '100%'
     }
-    
+
     const user_id = req.session.user || null;
     const options = {user_id, quiz_rating: req.body.quiz_rating, quiz_id: req.body.quiz_id, result: score};
     queries.insertNewResult(db, options)
@@ -51,7 +51,6 @@ module.exports = (db) => {
     })
   });
 
-  // We need a POST route to insert results
 
   return router;
 };
