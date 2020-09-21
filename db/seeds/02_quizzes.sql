@@ -15,10 +15,3 @@ VALUES (2, 'A title', 'General');
 
 INSERT INTO quizzes (owner_id, title, category)
 VALUES (2, 'A title', 'Arts');
-
--- Gaming
--- Programming
--- General
--- Arts
--- History
--- Math
