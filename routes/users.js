@@ -16,7 +16,8 @@ module.exports = (db, body) => {
 
   // This route bring you to the new quiz page
   router.get("/:id/quiz/new", (req, res) => {
-    res.render("make-quiz");
+    const userId = req.session.user;
+    res.render("make-quiz", {userId});
   });
 
   // This route brings you to the new question page
@@ -41,10 +42,11 @@ module.exports = (db, body) => {
 
   // This route brings you to the all quizzes page and allows you to delete quizzes
   router.get("/:id/quiz", (req, res) => {
+    const userId = req.session.user;
     queries.getAllUsersQuizzes(db, {id: req.params.id})
     .then((quizzes) => {
       console.log(quizzes);
-      res.render("delete-quiz", {quizzes});
+      res.render("delete-quiz", {quizzes, userId});
     });
   });
 
@@ -62,14 +64,13 @@ module.exports = (db, body) => {
     }
   });
 
+  // Takes you to all results page
   router.get("/:id/results", (req, res) => {
-    queries.getQuiz(db, {id: req.params.id})
-    .then((quiz) => {
-      queries.getQuizResults(db, {id: req.params.id2})
-      .then((results) => {
-        console.log(results);
-        res.render("results", {results});
-      });
+    const userId = req.session.user;
+    queries.getQuizResults(db, {id: req.params.id2})
+    .then((results) => {
+      console.log(userId);
+      res.render("results", {results, userId});
     });
   });
 
