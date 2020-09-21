@@ -43,7 +43,7 @@ module.exports = (db, body) => {
   router.get("/:id/quiz", (req, res) => {
     queries.getAllUsersQuizzes(db, {id: req.params.id})
     .then((quizzes) => {
-      console.log(quizzes)
+      console.log(quizzes);
       res.render("delete-quiz", {quizzes});
     });
   });
