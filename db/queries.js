@@ -122,3 +122,11 @@ const insertNewResult = function(db, options){
   .then(res => res.rows[0]);
 }
 exports.insertNewResult = insertNewResult;
+
+const getUserById = function(db, userId){
+  return db.query(`
+  SELECT * FROM users
+  WHERE users.id = $1;`, [userId])
+  .then(res => res.rows[0]);
+}
+exports.getUserById = getUserById;
