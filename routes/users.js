@@ -67,8 +67,6 @@ module.exports = (db, body) => {
     const userId = req.session.user;
     queries.getQuizResults(db, {id: req.params.id2})
     .then((results) => {
-      // ***********************************************
-      console.log(results);
       res.render("results", {results, userId});
     });
   });
