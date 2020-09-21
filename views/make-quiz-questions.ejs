@@ -23,7 +23,7 @@
         <input id="answer-3" type="text" name="answer_3">
         <label for="answer_correct">Correct Answer</label>
         <input id="correct-answer" type="text" name="answer_correct">
-        <input type="number" name="quiz_id" value="<%=quiz_id%>" style="opacity: 0;">
+        <input id="qId" type="number" name="quiz_id" value="<%=quiz_id%>" style="opacity: 0;">
         <button type="submit" class="btn btn-outline-primary">Submit</button>
       </form>
       <div id="question-container">
@@ -59,6 +59,7 @@
             $("#question-container").append($newQuestion);
             $("#question-container").scrollTop(10000000000);
             $(this).children().val('')
+            $("#qId").val('<%=quiz_id%>')
             $('#share-card').remove();
           })
         })
