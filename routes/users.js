@@ -10,7 +10,7 @@ module.exports = (db, body) => {
     .then((quizzes) => {
       console.log(quizzes)
       // res.render("make-quiz", {quizzes});
-      res.redirect(`/users/${req.session.user}/quiz/${quizzes.id}/question`)
+      res.redirect(`/user/${req.session.user}/quiz/${quizzes.id}/question`)
     });
   });
 
@@ -68,7 +68,7 @@ module.exports = (db, body) => {
   // Takes you to all results page
   router.get("/:id/results", (req, res) => {
     const userId = req.session.user;
-    queries.getQuizResults(db, {id: req.params.id2})
+    queries.getQuizResults(db, {user_id: req.params.id2})
     .then((results) => {
       console.log(userId);
       res.render("results", {results, userId});

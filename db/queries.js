@@ -46,6 +46,10 @@ const getQuizResults = function(db, options){
     queryString += `
     AND quiz_id = $1`;
     queryOptions.push(options.quiz_id);
+  } else if(options.user_id){
+    queryString += `
+    AND users.id = $1`;
+    queryOptions.push(options.id);
   } else if(options.id){
     queryString += `
     AND results.id = $1`;
