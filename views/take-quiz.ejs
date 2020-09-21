@@ -21,7 +21,14 @@
           <h4 class="d"><input type="checkbox" name="1"><%= question.answer_correct %></h4>
         </div>
       <% } %>
-      <span id='stars'>☆☆☆☆☆</span>
+      <span id='stars'>
+        <div class='star' val="1">★</div>
+        <div class='star' val="2">★</div>
+        <div class='star' val="3">★</div>
+        <div class='star' val="4">★</div>
+        <div class='star' val="5">★</div>
+      </span>
+      <input id="rating" type="number" name="quiz_rating" value="0" style="opacity: 0;">
       <button type="submit" class="btn btn-outline-primary">Submit</button>
       </form>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
@@ -29,6 +36,8 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <script>
       $(function() {
+        let rating = 0;
+
         $("h4 > input:checkbox").on('click', function(){
           $(this).parent().parent().children().children().prop("checked", false);
           $(this).prop("checked", true);
@@ -36,6 +45,12 @@
         $("h4").on('click', function(){
           $(this).parent().children().children().prop("checked", false);
           $(this).children().prop("checked", true);
+        })
+        $(".star").on('click', function(){
+          rating = $(this).attr('val');
+          $('#rating').val(rating)
+          $(this).parent().children().attr('class', 'star');
+          $(this).attr('class', 'rated');
         })
       });
     </script>
