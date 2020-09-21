@@ -10,6 +10,14 @@
   </head>
   <body>
     <%- include('partials/_header') %>
+    <div id="question-container">
+      <% for (const question of questions) { %>
+        <div class="quiz-question">
+          <h4><%= question.question %></h4>
+          <p><%= question.answer_correct %></p>
+        </div>
+      <% } %>
+    </div>
     <form id="new-quiz-container" method="POST">
       <h1 name="quiz_id"><%= quiz.title %></h1>
       <label for="question">New Question</label>
@@ -25,14 +33,28 @@
       <input type="number" name="quiz_id" value="<%=quiz_id%>" style="opacity: 0;">
       <button type="submit" class="btn btn-outline-primary">Submit</button>
     </form>
-    <% for (const question of questions) { %>
-      <div class="quiz">
-        <h4><%= question.question %></h4>
-        <p><%= question.answer_correct %></p>
-      </div>
-    <% } %>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+      $(function() {
+        $("form").on('submit', function(event){
+          event.preventDefault();
+          $.ajax(window.location.href, { method: 'POST', data: $(this).serialize()})
+          .then((data) =>  {
+            let $newQuestion = $("<div class = 'quiz-question'></div>");
+            let $question = $(`<h4>${data.question}</h4>`);
+            let $answer = $(`<p>${data.answer_correct}</p>`);
+
+            $newQuestion.append($question);
+            $newQuestion.append($answer);
+
+            $("#question-container").append($newQuestion);
+            $("#question-container").scrollTop(10000000000);
+          })
+        })
+      });
+    </script>
   </body>
 </html>

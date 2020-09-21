@@ -11,13 +11,16 @@
   margin-top: 20px;
 }
 
-#take-quiz > h4 {
+#take-quiz > .answer-container > h4 {
   padding: 10px;
   border-radius: 5px;
   border: 2px solid black;
+  text-align: center;
+  display: flex;
+  justify-content: flex-start
 }
 
-#take-quiz > h4:hover {
+#take-quiz > .answer-container > h4:hover {
   @extend %hover;
 }
 
@@ -27,4 +30,20 @@
 
 #take-quiz > button {
   font-weight: bold;
+}
+.answer-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: 10%;
+}
+input {
+  transform: scale(2);
+  margin-top: 5%;
+  margin-right: 8%;
+}
+.a, .b, .c, .d {
+  width: 40vw;
+  height: 15vw;
+  text-align: center;
 }

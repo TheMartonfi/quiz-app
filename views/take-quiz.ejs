@@ -6,21 +6,38 @@
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Rajdhani&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="/styles/layout.css">
-    <title>Quiz App</title>
+    <title><%= quiz.title %> | Quiz App</title>
   </head>
   <body>
     <%- include('partials/_header') %>
-    <div id="take-quiz">
-      <h1>Zelda Trivia</h1>
-      <h2>Which game comes first in the Zelda timeline?</h2>
-      <h4>Skyward Sword</h4>
-      <h4>The Legend of Zelda</h4>
-      <h4>The Wind Waker</h4>
-      <h4>Breath of the Wild</h4>
+    <form action="/quiz/result/new" method="POST" id="take-quiz">
+      <h1><%= quiz.title %></h1>
+      <% for (const question of questions) { %>
+        <h2><%= question.question %></h2>
+        <div class="answer-container">
+          <h4 class="a"><input type="checkbox" name="0"><%= question.answer_1 %></h4>
+          <h4 class="b"><input type="checkbox" name="0"><%= question.answer_2 %></h4>
+          <h4 class="c"><input type="checkbox" name="0"><%= question.answer_3 %></h4>
+          <h4 class="d"><input type="checkbox" name="1"><%= question.answer_correct %></h4>
+        </div>
+      <% } %>
+      <span id='stars'>☆☆☆☆☆</span>
       <button type="submit" class="btn btn-outline-primary">Submit</button>
-    </div>
+      </form>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script>
+      $(function() {
+        $("h4 > input:checkbox").on('click', function(){
+          $(this).parent().parent().children().children().prop("checked", false);
+          $(this).prop("checked", true);
+        })
+        $("h4").on('click', function(){
+          $(this).parent().children().children().prop("checked", false);
+          $(this).children().prop("checked", true);
+        })
+      });
+    </script>
   </body>
 </html>

@@ -37,7 +37,7 @@ module.exports = (db, body) => {
     queries.insertNewQuestion(db, req.body)
     .then((question) => {
       console.log(question);
-      res.redirect(`/users/${req.session.user}/quiz/${req.body.quiz_id}/question`)
+      res.send(question)
     })
   });
 
