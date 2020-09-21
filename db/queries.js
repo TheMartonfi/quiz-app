@@ -123,10 +123,19 @@ const insertNewResult = function(db, options){
 }
 exports.insertNewResult = insertNewResult;
 
-const getUserById = function(db, userId){
+const getUserById = function(db, options){
   return db.query(`
   SELECT * FROM users
-  WHERE users.id = $1;`, [userId])
+  WHERE users.id = $1;`, [options.user_id])
   .then(res => res.rows[0]);
 }
 exports.getUserById = getUserById;
+
+const getQuizResult = function(db, options){
+  return db.query(`
+  SELECT * FROM results
+  WHERE user_id = $1
+  AND quiz_id = $2;`, [options.user_id, options.quiz_id])
+  .then(res => res.rows[0]);
+}
+exports.getQuizResult = getQuizResult;
