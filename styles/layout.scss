@@ -14,10 +14,6 @@ $secondary-font: 'Rajdhani', sans-serif;
   background-color: $primary-color;
 }
 
-%click {
-  box-shadow: none;
-}
-
 %flex-center {
   display: flex;
   flex-direction: column;
@@ -76,5 +72,5 @@ nav a {
 }
 
 .quiz:active {
-  @extend %click
+  box-shadow: none;
 }

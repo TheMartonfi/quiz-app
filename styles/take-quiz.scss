@@ -22,7 +22,7 @@
 }
 
 #take-quiz > h4:active {
-  @extend %click
+  box-shadow: none;
 }
 
 #take-quiz > button {

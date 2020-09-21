@@ -123,6 +123,7 @@ const insertNewResult = function(db, options){
 }
 exports.insertNewResult = insertNewResult;
 
+// Retrives user by id
 const getUserById = function(db, options){
   return db.query(`
   SELECT * FROM users
@@ -131,6 +132,7 @@ const getUserById = function(db, options){
 }
 exports.getUserById = getUserById;
 
+// Gets results for individual quiz
 const getQuizResult = function(db, options){
   return db.query(`
   SELECT * FROM results
