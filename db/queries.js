@@ -36,7 +36,7 @@ exports.getAllUsersQuizzes = getAllUsersQuizzes;
 //Returns an array of results
 const getQuizResults = function(db, options){
   let queryString = `
-  SELECT result, users.username AS username, time_spent, quiz_rating, title, category, description
+  SELECT result, users.username AS username, time_spent, quiz_rating, title, category, description, quiz_id, user_id
   FROM results
   JOIN quizzes ON quiz_id = quizzes.id
   JOIN users ON user_id = users.id`;
