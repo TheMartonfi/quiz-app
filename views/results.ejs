@@ -19,7 +19,7 @@
           <h3><%= result.category %></h3>
           <h4><%= result.result %></h4>
           <!-- Make onclick event to copy share url to clipboard for buttons -->
-          <button type="button" class="btn btn-outline-primary">Share Result</button>
+          <button usId="<%= result.user_id %>" quId="<%= result.quiz_id %>" type="button" class="btn btn-outline-primary">Share Result</button>
           <button type="button" class="btn btn-outline-primary">Share Quiz</button>
         </div>
       <% } %>
@@ -28,10 +28,25 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <script>
-      $("button").on('click', function(event){
+      $(function() {
+        $("button").on('click', function(event){
           event.preventDefault();
-          $('body').prepend('<div id="share-card"><div>ABCDEFG</div></div>')
-      });
+          $('body').prepend(`<div id="share-card">
+            <button id='exit'>
+              X
+            </button>
+            <div>
+              localhost:8080/quiz/${$(this).attr('usId')}/result/${$(this).attr('quId')}
+            </div>
+            <button>
+              Copy
+            </button>
+            </div>`);
+          $("#exit").on('click', function(){
+            $(this).parent().remove();
+          })
+        });
+      })
     </script>
   </body>
 </html>
