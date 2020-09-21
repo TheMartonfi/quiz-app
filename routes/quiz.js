@@ -28,6 +28,29 @@ module.exports = (db) => {
     });
   });
 
+  router.post("/result/new", (req, res) => {
+    console.log(req.body)
+    let correct = 0;
+    if(req.body['1']){
+      correct = req.body['1'].length;
+    }
+    let total = 0;
+    let score = 0;
+    if(req.body['0']){
+      total = req.body['0'].length + correct;
+      score = `${Math.round((correct / total) * 100)}%`;
+    } else {
+      score = '100%'
+    }
+    
+    const user_id = req.session.user || null;
+    const options = {user_id, quiz_rating: req.body.quiz_rating, quiz_id: req.body.quiz_id, result: score};
+    queries.insertNewResult(db, options)
+    .then((result) => {
+      res.redirect(`/users/${user_id}/result/${req.body.quiz_id}`);
+    })
+  });
+
   // We need a POST route to insert results
 
   return router;

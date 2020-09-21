@@ -13,18 +13,18 @@ exports.getAllPublicQuizzes = getAllPublicQuizzes;
 //Returns a quiz object
 const getQuiz = function(db, options){
   return db.query(`
-  SELECT title, category, description, COUNT(results.*) as times_played, AVG(quiz_rating) as average_rating
+  SELECT quizzes.id, title, category, description, COUNT(results.*) as times_played, AVG(quiz_rating) as average_rating
   FROM quizzes
   FULL OUTER JOIN results ON quizzes.id = results.quiz_id
   WHERE quizzes.id = ${options.id}
-  GROUP BY title, category, description;`)
+  GROUP BY quizzes.id, title, category, description;`)
   .then(res => res.rows[0]);
 }
 exports.getQuiz = getQuiz;
 
 const getAllUsersQuizzes = function(db, options){
   return db.query(`
-  SELECT quizzes.id, title, category, description
+  SELECT id, title, category, description
   FROM quizzes
   JOIN users ON quizzes.owner_id = users.id
   WHERE owner_id = $1
@@ -36,7 +36,7 @@ exports.getAllUsersQuizzes = getAllUsersQuizzes;
 //Returns an array of results
 const getQuizResults = function(db, options){
   let queryString = `
-  SELECT result, users.username AS username, time_spent, quiz_rating, title, category, description
+  SELECT result, users.username AS username, time_spent, quiz_rating, title, category, description, quiz_id, user_id
   FROM results
   JOIN quizzes ON quiz_id = quizzes.id
   JOIN users ON user_id = users.id`;
@@ -115,10 +115,10 @@ exports.getQuestions = getQuestions;
 //Inserts and returns one new question object
 const insertNewResult = function(db, options){
   return db.query(`
-  INSERT INTO results (quiz_id, user_id, result, time_spent, quiz_rating)
-  VALUES ($1, $2, $3, $4, $5)
+  INSERT INTO results (quiz_id, user_id, result, quiz_rating)
+  VALUES ($1, $2, $3, $4)
   RETURNING *`,
-  [options.quiz_id, options.user_id, options.result, options.time_spent, options.quiz_rating,])
+  [options.quiz_id, options.user_id, options.result, options.quiz_rating,])
   .then(res => res.rows[0]);
 }
 exports.insertNewResult = insertNewResult;
