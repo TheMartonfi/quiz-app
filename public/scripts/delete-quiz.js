@@ -4,11 +4,11 @@ $(() => {
     event.preventDefault();
 
     const deleteURL = $(this).children().attr("id");
+    const $quizContainer = $(this).parent();
+
     $.post(deleteURL)
       .then(() => {
-        console.log("success");
-        // Remove deleted quiz
-
+        $quizContainer.remove();
       });
   });
 

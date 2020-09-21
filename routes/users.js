@@ -46,8 +46,6 @@ module.exports = (db, body) => {
     const userId = req.session.user;
     queries.getAllUsersQuizzes(db, {id: req.params.id})
     .then((quizzes) => {
-      console.log(quizzes);
-      console.log('userId:', userId);
       res.render("delete-quiz", {quizzes, userId});
     });
   });
