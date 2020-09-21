@@ -10,13 +10,13 @@
   </head>
   <body>
     <%- include('partials/_header') %>
-    <h1 class="username"><%= results[0].username %> <!--Username--></h1>
+    <h1 class="username"><%= result.username %> <!--Username--></h1>
     <div id="result-container">
       <div class="results">
         <h1>Result</h1>
         <h2><%= quiz.title %><!--Title--></h2>
         <h3><%= quiz.category %><!--Category--></h3>
-        <h4><%= results[0].result %><!--Result--></h4>
+        <h4><%= result.result %><!--Result--></h4>
         <button type="button" class="btn btn-outline-primary">Share Result</button>
         <button type="button" class="btn btn-outline-primary">Share Quiz</button>
       </div>

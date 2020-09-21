@@ -19,9 +19,9 @@ module.exports = (db) => {
   router.get("/:id/result/:id2", (req, res) => {
     queries.getQuiz(db, {id: req.params.id})
     .then((quiz) => {
-      queries.getQuizResults(db, {id: req.params.id2})
-      .then((results) => {
-        res.render("result", {quiz, results});
+      queries.getQuizResult(db, {user_id: req.params.id, quiz_id: req.params.id2})
+      .then((result) => {
+        res.render("result", {quiz, result});
       });
     });
   });
