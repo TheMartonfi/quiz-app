@@ -123,15 +123,6 @@ const insertNewResult = function(db, options){
 }
 exports.insertNewResult = insertNewResult;
 
-// Retrives user by id
-const getUserById = function(db, options){
-  return db.query(`
-  SELECT * FROM users
-  WHERE users.id = $1;`, [options.user_id])
-  .then(res => res.rows[0]);
-}
-exports.getUserById = getUserById;
-
 // Gets results for individual quiz
 const getQuizResult = function(db, options){
   return db.query(`

@@ -22,11 +22,12 @@ module.exports = (db, body) => {
 
   // This route brings you to the new question page
   router.get("/:id/quiz/:id2/question", (req, res) => {
+    const userId = req.session.user;
     queries.getQuiz(db, {id: req.params.id2})
     .then((quiz) => {
       queries.getQuestions(db, {id: req.params.id2})
       .then((questions) => {
-        res.render("make-quiz-questions", {questions, quiz, quiz_id: req.params.id2});
+        res.render("make-quiz-questions", {questions, quiz, quiz_id: req.params.id2, userId});
       })
     })
   });

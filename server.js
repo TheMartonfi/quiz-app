@@ -39,7 +39,6 @@ app.use("/quiz", quizRoutes(db));
 // Home page
 app.get("/", (req, res) => {
   const userId = req.session.user;
-
   queries.getAllPublicQuizzes(db)
   .then((quizzes) => {
     res.render("home", {quizzes, userId});
