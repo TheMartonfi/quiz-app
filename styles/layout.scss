@@ -78,3 +78,19 @@ nav a {
 .quiz:active {
   @extend %click
 }
+
+.quiz-question {
+  padding-top: 15px;
+  border: 2px solid black;
+  margin: 10px;
+}
+#question-container {
+  width: 40%;
+  border: 2px solid black;
+  position: fixed;
+  height: 80%;
+  margin-top: 2%;
+  overflow-y: scroll;
+  right: 0;
+  margin-right: 2%;
+}
