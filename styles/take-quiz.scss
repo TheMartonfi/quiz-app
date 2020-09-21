@@ -16,6 +16,8 @@
   border-radius: 5px;
   border: 2px solid black;
   text-align: center;
+  display: flex;
+  justify-content: flex-start
 }
 
 #take-quiz > .answer-container > h4:hover {
