@@ -11,12 +11,16 @@
   <body>
     <%- include('partials/_header') %>
     <div id="take-quiz">
-      <h1>Zelda Trivia</h1>
-      <h2>Which game comes first in the Zelda timeline?</h2>
-      <h4>Skyward Sword</h4>
-      <h4>The Legend of Zelda</h4>
-      <h4>The Wind Waker</h4>
-      <h4>Breath of the Wild</h4>
+      <h1><%= quiz.title %></h1>
+      <% for (const question of questions) { %>
+        <h2><%= question.question %></h2>
+        <div class="answer-container">
+          <h4 class="a"><%= question.answer_1 %></h4>
+          <h4 class="b"><%= question.answer_2 %></h4>
+          <h4 class="c"><%= question.answer_3 %></h4>
+          <h4 class="d"><%= question.answer_correct %></h4>
+        </div>
+      <% } %>
       <button type="submit" class="btn btn-outline-primary">Submit</button>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

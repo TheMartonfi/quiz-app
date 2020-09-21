@@ -11,20 +11,25 @@
   margin-top: 20px;
 }
 
-#take-quiz > h4 {
+#take-quiz > .answer-container > h4 {
   padding: 10px;
   border-radius: 5px;
   border: 2px solid black;
+  text-align: center;
 }
 
-#take-quiz > h4:hover {
+#take-quiz > .answer-container > h4:hover {
   @extend %hover;
 }
 
-#take-quiz > h4:active {
+#take-quiz > .answer-container > h4:active {
   @extend %click
 }
 
 #take-quiz > button {
   font-weight: bold;
+}
+.answer-container{
+  display: flex;
+  flex-direction: column;
 }
