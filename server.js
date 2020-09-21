@@ -41,6 +41,7 @@ app.get("/", (req, res) => {
   const userId = req.session.user;
   queries.getAllPublicQuizzes(db)
   .then((quizzes) => {
+    console.log(quizzes);
     res.render("home", {quizzes, userId});
   });
 });
