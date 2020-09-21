@@ -26,8 +26,6 @@ module.exports = (db) => {
     });
   });
 
-  // We need a new GET route to see all quiz results
-
   // We need a POST route to insert results
 
   return router;

@@ -62,5 +62,16 @@ module.exports = (db, body) => {
     }
   });
 
+  router.get("/:id/results", (req, res) => {
+    queries.getQuiz(db, {id: req.params.id})
+    .then((quiz) => {
+      queries.getQuizResults(db, {id: req.params.id2})
+      .then((results) => {
+        console.log(results);
+        res.render("results", {results});
+      });
+    });
+  });
+
   return router;
 };
