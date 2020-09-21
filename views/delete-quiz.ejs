@@ -16,11 +16,10 @@
       <div class="delete">
         <h1><%= quiz.title %></h1>
         <h2><%= quiz.category %></h2>
-        <!-- Add share quiz button? -->
-        <!-- make button into form and submit to correct url -->
         <form>
           <button type="submit" class="btn btn-outline-danger" id="/users/<%= userId %>/quiz/<%= quiz.id %>/delete">Delete</button>
         </form>
+        <button type="button" class="btn btn-outline-primary">Share Quiz</button>
       </div>
     <% } %>
     </div>

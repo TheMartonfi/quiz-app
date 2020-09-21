@@ -7,7 +7,7 @@
 .delete {
   @extend %flex-center;
   width: 353px;
-  height: 170px;
+  height: 200px;
   margin: 15px;
   margin-top: 30px;
   border-radius: 5px;
@@ -23,7 +23,7 @@
   font-family: $secondary-font;
 }
 
-button[class="btn btn-outline-danger"] {
+.delete button {
   background-color: white;
   font-weight: bold;
   font-family: $secondary-font;
