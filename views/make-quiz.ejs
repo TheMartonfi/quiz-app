@@ -12,9 +12,9 @@
     <%- include('partials/_header') %>
     <form id="new-quiz-container" method="POST">
       <h1>New Quiz</h1>
-      <label for="title">Title</label>
+      <label for="title"><h3>Title</h3></label>
       <input id="title" type="text" name="title">
-      <label for="category">Category</label>
+      <label for="category"><h3>Category</h3></label>
       <input list="category" name="category">
       <datalist id="category">
         <option value="Gaming">
@@ -24,11 +24,11 @@
         <option value="History">
         <option value="Math">
       </datalist>
-      <label for="description">Description</label>
+      <label for="description"><h3>Description</h3></label>
       <input id="description" type="text" name="description">
-      <div>
+      <div class="a">
         <input id="unlisted" type="checkbox" name="is_unlisted">
-        <label for="unlisted">Unlisted</label>
+        <label for="unlisted"><h3>Unlisted</h3></label>
       </div>
       <button type="submit" class="btn btn-outline-primary">Submit</button>
     </form>
