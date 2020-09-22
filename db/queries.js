@@ -10,5 +10,6 @@ const getQuestions = require('./queries/2_questions/2_getQuestions');
 const getQuizResults = require('./queries/3_results/1_getQuizResults');
 const insertNewResult = require('./queries/3_results/2_insertNewResult');
 const getQuizResult = require('./queries/3_results/3_getQuizResult');
+const getQuizAverageTime = require('./queries/3_results/4_getQuizAverageTime');
 
-module.exports = {getAllPublicQuizzes, getQuiz, getAllUsersQuizzes, insertNewQuiz, deleteQuiz, insertNewQuestion, getQuestions, getQuizResults, insertNewResult, getQuizResult};
+module.exports = {getAllPublicQuizzes, getQuiz, getAllUsersQuizzes, insertNewQuiz, deleteQuiz, insertNewQuestion, getQuestions, getQuizResults, insertNewResult, getQuizResult, getQuizAverageTime};

@@ -16,14 +16,18 @@ module.exports = (db) => {
     });
   });
 
-  // Takes you to individual quiz result
+  // Takes you to individual result
   router.get("/:id/result/:id2", (req, res) => {
     const userId = req.session.user;
     queries.getQuiz(db, {id: req.params.id2})
     .then((quiz) => {
       queries.getQuizResult(db, {user_id: req.params.id, quiz_id: req.params.id2})
       .then((result) => {
-        res.render("result", {quiz, result, userId});
+        queries.getQuizAverageTime(db, {quiz_id: req.params.id2})
+        .then((averageTime) => {
+          console.log(averageTime);
+          res.render("result", {quiz, result, averageTime, userId});
+        });
       });
     });
   });

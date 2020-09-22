@@ -7,3 +7,4 @@ const getQuizResult = function(db, options){
   .then(res => res.rows[0]);
 }
 module.exports = getQuizResult;
+
