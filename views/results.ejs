@@ -20,6 +20,27 @@
           <h3><%= result.category %></h3>
           <h4>Score: <%= result.result %></h4>
           <h4>Time Spent: <%= result.time_spent %></h4>
+          <% for (const averageTime of averageTimes) { %>
+            <% if (result.quiz_id === averageTime.id) { %>
+              <% if (averageTime.average_time.minutes) { %>
+                <% if (averageTime.average_time.minutes < 10 && averageTime.average_time.seconds < 10) { %>
+                  <h4>Average Time Spent: 00:0<%= averageTime.average_time.minutes %>:0<%= averageTime.average_time.seconds %></h4>
+                <% } else if (averageTime.average_time.minutes < 10) { %>
+                  <h4>Average Time Spent: 00:0<%= averageTime.average_time.minutes %>:<%= averageTime.average_time.seconds %></h4>
+                <% } else if (averageTime.average_time.seconds < 10) { %>
+                  <h4>Average Time Spent: 00:<%= averageTime.average_time.minutes %>:0<%= averageTime.average_time.seconds %></h4>
+                <% } else { %>
+                  <h4>Average Time Spent: 00:<%= averageTime.average_time.minutes %>:<%= averageTime.average_time.seconds %>
+                <% } %>
+              <% } else { %>
+                <% if (averageTime.average_time.seconds < 10) { %>
+                  <h4>Average Time Spent: 00:00:0<%= averageTime.average_time.seconds %></h4>
+                <% } else { %>
+                  <h4>Average Time Spent: 00:00:<%= averageTime.average_time.seconds %></h4>
+                <% } %>
+              <% } %>
+            <% } %>
+          <% } %>
           <button usId="<%= result.user_id %>" quId="<%= result.quiz_id %>" type="button" class="btn btn-outline-primary share-result">Share Result</button>
           <button quId="<%= result.quiz_id %>" type="button" class="btn btn-outline-primary share-quiz">Share Quiz</button>
         </div>

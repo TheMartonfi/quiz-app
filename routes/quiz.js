@@ -25,7 +25,6 @@ module.exports = (db) => {
       .then((result) => {
         queries.getQuizAverageTime(db, {quiz_id: req.params.id2})
         .then((averageTime) => {
-          console.log(averageTime);
           res.render("result", {quiz, result, averageTime, userId});
         });
       });

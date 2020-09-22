@@ -64,7 +64,10 @@ module.exports = (db, body) => {
     const userId = req.session.user;
     queries.getQuizResults(db, {user_id: req.params.id})
     .then((results) => {
-      res.render("results", {results, userId});
+      queries.getQuizAverageTimes(db)
+      .then((averageTimes) => {
+        res.render("results", {results, averageTimes, userId});
+      });
     });
   });
 
