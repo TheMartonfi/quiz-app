@@ -7,4 +7,4 @@ const insertNewQuestion = function(db, options){
   [options.quiz_id, options.question, options.answer_1, options.answer_2, options.answer_3, options.answer_correct])
   .then(res => res.rows[0]);
 }
-exports.insertNewQuestion = insertNewQuestion;
+module.exports = insertNewQuestion;

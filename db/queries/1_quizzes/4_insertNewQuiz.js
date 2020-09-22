@@ -10,4 +10,4 @@ const insertNewQuiz = function(db, options, id){
   [id, options.title, options.category, options.description, options.is_unlisted])
   .then(res => res.rows[0]);
 }
-exports.insertNewQuiz = insertNewQuiz;
+module.exports = insertNewQuiz;

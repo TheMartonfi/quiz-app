@@ -8,4 +8,4 @@ const getAllPublicQuizzes = function(db){
   GROUP BY quizzes.id, title, category, description;`)
   .then(res => res.rows);
 }
-exports.getAllPublicQuizzes = getAllPublicQuizzes;
+module.exports = getAllPublicQuizzes;

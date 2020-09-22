@@ -4,4 +4,4 @@ const deleteQuiz = function(db, options){
   DELETE FROM quizzes WHERE id = $1`, [options.quiz_id])
   .then(res => res.rows);
 }
-exports.deleteQuiz = deleteQuiz;
+module.exports = deleteQuiz;

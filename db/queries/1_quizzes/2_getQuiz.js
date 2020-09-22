@@ -8,4 +8,4 @@ const getQuiz = function(db, options){
   GROUP BY quizzes.id, title, category, description;`)
   .then(res => res.rows[0]);
 }
-exports.getQuiz = getQuiz;
+module.exports = getQuiz;

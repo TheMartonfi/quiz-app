@@ -7,4 +7,4 @@ const getQuestions = function(db, options){
   WHERE quizzes.id = ${options.id};`)
   .then(res => res.rows);
 }
-exports.getQuestions = getQuestions;
+module.exports = getQuestions;

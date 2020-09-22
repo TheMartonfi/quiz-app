@@ -7,4 +7,4 @@ const getAllUsersQuizzes = function(db, options){
   GROUP BY quizzes.id, title, category, description;`, [options.id])
   .then(res => res.rows);
 }
-exports.getAllUsersQuizzes = getAllUsersQuizzes;
+module.exports = getAllUsersQuizzes;

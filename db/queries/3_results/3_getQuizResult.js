@@ -6,4 +6,4 @@ const getQuizResult = function(db, options){
   AND quiz_id = $2;`, [options.user_id, options.quiz_id])
   .then(res => res.rows[0]);
 }
-exports.getQuizResult = getQuizResult;
+module.exports = getQuizResult;

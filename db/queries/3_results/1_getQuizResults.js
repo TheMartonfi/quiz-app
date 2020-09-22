@@ -35,4 +35,4 @@ const getQuizResults = function(db, options){
   return db.query(queryString, queryOptions)
   .then(res => res.rows);
 }
-exports.getQuizResults = getQuizResults;
+module.exports = getQuizResults;
