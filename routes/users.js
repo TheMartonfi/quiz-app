@@ -65,7 +65,7 @@ module.exports = (db, body) => {
     queries.getQuizResults(db, {user_id: req.params.id})
     .then((results) => {
       res.render("results", {results, userId});
-    });
+    })
   });
 
   return router;
