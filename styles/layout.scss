@@ -124,3 +124,24 @@ nav a {
   outline: none;
   float: right;
 }
+.result-score {
+  transform: scale(1.5);
+}
+.result-score > div > span {
+  border-left: 2px solid black;
+  border-top: 20px solid transparent;
+  margin-left: 20px;
+}
+.result-score > p {
+  border: 2px solid black;
+  width: 200px;
+  height: 20px;
+  margin-bottom: 0;
+  background-image: linear-gradient(90deg, transparent 60%, blue 60%);
+}
+.result-score > div { 
+  margin-left: 21px;
+}
+.score-letter {
+  margin-left: 20px;
+}

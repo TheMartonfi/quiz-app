@@ -17,7 +17,17 @@
         <h1>Result</h1>
         <h2><%= quiz.title %></h2>
         <h3><%= quiz.category %></h3>
-        <h4><%= result.result %></h4>
+        <h4 class='result-score'>
+          <% const style = `linear-gradient(90deg, blue ${result.result}, transparent ${result.result})` %>
+          <p style='background-image: <%=style%>'></p>
+          <div>
+            <span class="score-letter">F</span>
+            <span class="score-letter">C</span>
+            <span class="score-letter">B</span>
+            <span class="score-letter">A</span>
+          </div>
+          <%= result.result %>
+        </h4>
         <button reId="<%= result.id %>" usId="<%= result.user_id %>" quId="<%= result.quiz_id %>" type="button" class="btn btn-outline-primary share-result">Share Result</button>
         <button quId="<%= result.quiz_id %>" type="button" class="btn btn-outline-primary share-quiz">Share Quiz</button>
       </div>
