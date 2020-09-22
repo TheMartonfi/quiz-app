@@ -107,3 +107,7 @@ nav a {
   margin-top: 7px;
   transform: scaleY(1.5);
 }
+#search-container > div{
+  height: auto;
+  min-height: 80vh;
+}
