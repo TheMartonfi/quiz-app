@@ -62,7 +62,6 @@ const getQuizResults = function(db, options){
       AND category = $${queryOptions.length}`;
     }
   }
-
   return db.query(queryString, queryOptions)
   .then(res => res.rows);
 }

@@ -50,7 +50,6 @@ module.exports = (db, body) => {
   // Change this to a post request to delete
   router.post("/:id/quiz/:id2/delete", (req, res) => {
     if(req.session.user === req.params.id){
-      // delete quiz
       queries.deleteQuiz(db, {quiz_id: req.params.id2})
       .then((quizzes) => {
         console.log('Another one bites the dust...')
@@ -65,7 +64,7 @@ module.exports = (db, body) => {
   // Takes you to all results page
   router.get("/:id/results", (req, res) => {
     const userId = req.session.user;
-    queries.getQuizResults(db, {id: req.params.id2})
+    queries.getQuizResults(db, {id: req.params.id})
     .then((results) => {
       res.render("results", {results, userId});
     });
