@@ -4,7 +4,7 @@ const queries = require('../db/queries');
 
 module.exports = (db, body) => {
 
-  // Change this to a post request to insert new quiz
+  // This route POSTs a new quiz to the database
   router.post("/:id/quiz/new", (req, res) => {
     queries.insertNewQuiz(db, req.body, req.session.user)
     .then((quizzes) => {
@@ -47,16 +47,14 @@ module.exports = (db, body) => {
     });
   });
 
-  // Change this to a post request to delete
+  // This route DELETEs a quiz from the database
   router.post("/:id/quiz/:id2/delete", (req, res) => {
     if(req.session.user === req.params.id){
       queries.deleteQuiz(db, {quiz_id: req.params.id2})
       .then((quizzes) => {
-        console.log('Another one bites the dust...')
         res.redirect('/');
       });
     } else {
-      console.log('fail')
       res.redirect('/');
     }
   });
@@ -66,7 +64,6 @@ module.exports = (db, body) => {
     const userId = req.session.user;
     queries.getQuizResults(db, {user_id: req.params.id})
     .then((results) => {
-      console.log(results)
       res.render("results", {results, userId});
     });
   });

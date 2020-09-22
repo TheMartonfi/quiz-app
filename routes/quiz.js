@@ -29,7 +29,6 @@ module.exports = (db) => {
   });
 
   router.post("/result/new", (req, res) => {
-    console.log(req.body)
     let correct = 0;
     if(req.body['1']){
       correct = req.body['1'].length;
@@ -50,7 +49,6 @@ module.exports = (db) => {
       res.redirect(`/quiz/${user_id}/result/${req.body.quiz_id}`);
     })
   });
-
 
   return router;
 };
