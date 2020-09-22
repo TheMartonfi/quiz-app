@@ -22,3 +22,21 @@
   margin-top: 25px;
   margin-left: 193px;
 }
+
+#finish-quiz {
+  width: 28%;
+  font-size: 6em;
+}
+
+.div-buttons {
+  display: flex;
+  flex-flow: wrap column;
+}
+
+.div-buttons > button {
+  font-weight: bold;
+}
+
+.div-buttons > * {
+  margin-bottom: 10px;
+}

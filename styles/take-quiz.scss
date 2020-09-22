@@ -55,3 +55,23 @@ input {
   height: 15vw;
   margin: 5px;
 }
+
+#stars {
+  font-size: 6em;
+  display: flex;
+  flex-direction: row;
+}
+
+.star:hover {
+  cursor: pointer;
+  color: $primary-color;
+}
+
+.rated {
+  color: $primary-color;
+  outline: $secondary-color;
+}
+
+.rated:hover {
+  cursor: pointer;
+}
