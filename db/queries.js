@@ -14,4 +14,4 @@ const getQuizResult = require('./queries/3_results/3_getQuizResult');
 const getQuizAverageTime = require('./queries/3_results/4_getQuizAverageTime');
 const getQuizAverageTimes = require('./queries/3_results/5_getQuizAverageTimes');
 
-module.exports = {getAllPublicQuizzes, getQuiz, getAllUsersQuizzes, insertNewQuiz, deleteQuiz, insertNewQuestion, getQuestions, getQuizResults, insertNewResult, getQuizResult, getQuizAverageTime, getQuizAverageTimes};
+module.exports = {getAllPublicQuizzes, getQuiz, getAllUsersQuizzes, insertNewQuiz, deleteQuiz, insertNewQuestion, getQuestions, getQuizResults, insertNewResult, getQuizResult, getQuizAverageTime, getQuizAverageTimes, searchQuizzes};
