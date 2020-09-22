@@ -45,12 +45,19 @@
 
 input {
   transform: scale(2);
-  margin-top: 5%;
   margin-right: 8%;
+  margin-left: 3%;
 }
 
 .a, .b, .c, .d {
   width: 40vw;
   height: 15vw;
+<<<<<<< HEAD
   margin: 5px;
 }
+=======
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+>>>>>>> master

@@ -10,6 +10,7 @@
   </head>
   <body>
     <%- include('partials/_header') %>
+<<<<<<< HEAD
     <form id="new-quiz-container" method="POST">
       <h1>New Quiz</h1>
       <label for="title"><h3>Title</h3></label>
@@ -32,6 +33,32 @@
       </div>
       <button type="submit" class="btn btn-outline-primary">Submit</button>
     </form>
+=======
+    <div id="new-questions">
+      <form id="new-quiz-container" method="POST">
+        <h1>New Quiz</h1>
+        <label for="title"><h3>Title</h3></label>
+        <input id="title" type="text" name="title">
+        <label for="category"><h3>Category</h3></label>
+        <input list="category" name="category">
+        <datalist id="category">
+          <option value="Gaming">
+          <option value="Programming">
+          <option value="General">
+          <option value="Arts">
+          <option value="History">
+          <option value="Math">
+        </datalist>
+        <label for="description"><h3>Description</h3></label>
+        <input id="description" type="text" name="description">
+        <div class="a">
+          <input id="unlisted" type="checkbox" name="is_unlisted">
+          <label for="unlisted"><h3>Unlisted</h3></label>
+        </div>
+        <button type="submit" class="btn btn-outline-primary">Submit</button>
+      </form>
+    </div>
+>>>>>>> master
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>

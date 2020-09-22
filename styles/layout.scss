@@ -146,7 +146,18 @@ nav a {
   color: $primary-color;
   outline: $secondary-color;
 }
+<<<<<<< HEAD
 
 .rated:hover {
   cursor: pointer;
 }
+=======
+#finish-quiz {
+  width: 28%;
+  font-size: 7em;
+  margin-bottom: 2em;
+}
+.div-buttons {
+  display: flex;
+}
+>>>>>>> master
