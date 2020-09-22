@@ -44,30 +44,6 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script>
-      $(function() {
-        $("form").on('submit', function(event){
-          event.preventDefault();
-          $('body').prepend(`<div id="share-card">
-          <img src='https://i.pinimg.com/originals/58/4b/60/584b607f5c2ff075429dc0e7b8d142ef.gif'/>
-          </div>`);
-          $.ajax(window.location.href, { method: 'POST', data: $(this).serialize()})
-          .then((data) =>  {
-            let $newQuestion = $("<div class = 'quiz-question'></div>");
-            let $question = $(`<h4>${data.question}</h4>`);
-            let $answer = $(`<p>${data.answer_correct}</p>`);
-
-            $newQuestion.append($question);
-            $newQuestion.append($answer);
-
-            $("#question-container").append($newQuestion);
-            $("#question-container").scrollTop(10000000000);
-            $(this).children().val('')
-            $("#qId").val('<%=quiz_id%>')
-            $('#share-card').remove();
-          })
-        })
-      });
-    </script>
+    <script type="text/javascript" src="/scripts/make-quiz-questions.js"></script>
   </body>
 </html>
