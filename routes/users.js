@@ -64,8 +64,9 @@ module.exports = (db, body) => {
   // Takes you to all results page
   router.get("/:id/results", (req, res) => {
     const userId = req.session.user;
-    queries.getQuizResults(db, {id: req.params.id})
+    queries.getQuizResults(db, {user_id: req.params.id})
     .then((results) => {
+      console.log(results)
       res.render("results", {results, userId});
     });
   });
