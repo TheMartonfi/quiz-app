@@ -16,11 +16,13 @@
     </form>
     <div id="search-container" class="quiz-container">
       <div>
-        <h1 class="category">Results</h1>
+        <h1 class="category">Rating</h1>
         <% for (const quiz of quizzes) { %>
           <a href="quiz/<%= quiz.id %>">
             <div class="quiz">
               <h4><%= quiz.title %></h4>
+              <% const style = `linear-gradient(90deg, blue ${Math.round(quiz.average_rating*200)/10}%, black ${Math.round(quiz.average_rating*200)/10}%)` %>
+              <span style="background-image: <%=style%>" class="quiz_rating">★★★★★</span>
               <p><%= quiz.description %></p>
             </div>
           </a>
