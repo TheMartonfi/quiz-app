@@ -8,13 +8,7 @@ module.exports = (db, body) => {
   router.post("/:id/quiz/new", (req, res) => {
     queries.insertNewQuiz(db, req.body, req.session.user)
     .then((quizzes) => {
-<<<<<<< HEAD
       res.redirect(`/users/${req.session.user}/quiz/${quizzes.id}/question`)
-=======
-      console.log(quizzes)
-      // res.render("make-quiz", {quizzes});
-      res.redirect(`/user/${req.session.user}/quiz/${quizzes.id}/question`)
->>>>>>> master
     });
   });
 

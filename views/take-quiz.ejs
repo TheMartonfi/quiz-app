@@ -32,7 +32,7 @@
             <% } %>
 
           <% } %>
-          
+
           <% order.forEach((element) => { %>
             <% if(element === 1){ %>
               <h4 class="a"><input type="checkbox" name="0"><%= question.answer_1 %></h4>
@@ -47,7 +47,7 @@
               <h4 class="d"><input type="checkbox" name="1"><%= question.answer_correct %></h4>
               <% } %>
           <% }); %>
-          
+
         </div>
       <% } %>
       <span id='stars'>
@@ -57,13 +57,10 @@
         <div class='star' val="4">★</div>
         <div class='star' val="5">★</div>
       </span>
-      <button type="submit" class="btn btn-outline-primary">Submit</button>
+      <!-- <button type="submit" class="btn btn-outline-primary">Submit</button> -->
       <input id="rating" type="number" name="quiz_rating" value="0" style="opacity: 0;">
       <input type="number" name="quiz_id" value="<%= quiz.id %>" style="opacity: 0;">
-<<<<<<< HEAD
-=======
       <button id="finish-quiz" type="submit" class="btn btn-outline-primary">Submit</button>
->>>>>>> master
       </form>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
