@@ -49,7 +49,7 @@ const getQuizResults = function(db, options){
   } else if(options.user_id){
     queryString += `
     AND users.id = $1`;
-    queryOptions.push(options.id);
+    queryOptions.push(options.user_id);
   } else if(options.id){
     queryString += `
     AND results.id = $1`;
@@ -66,6 +66,7 @@ const getQuizResults = function(db, options){
       AND category = $${queryOptions.length}`;
     }
   }
+
   return db.query(queryString, queryOptions)
   .then(res => res.rows);
 }
