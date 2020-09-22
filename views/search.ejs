@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -11,26 +10,27 @@
   </head>
   <body>
     <%- include('partials/_header') %>
-    <% if(quizzes) { %>
-    <div id="delete-container">
-    <% for (const quiz of quizzes) { %>
-      <div class="delete">
-        <h1><%= quiz.title %></h1>
-        <h2><%= quiz.category %></h2>
-        <form>
-          <button type="submit" class="btn btn-outline-danger" id="/users/<%= userId %>/quiz/<%= quiz.id %>/delete">Delete</button>
-        </form>
-        <button quId="<%= quiz.id %>" type="button" class="btn btn-outline-primary share-quiz">Share Quiz</button>
+    <form id='search-form' action="/search" method="POST">
+      <input id="search" type="text" name="search">
+      <button type='submit' class="btn btn-outline-primary">◘</button>
+    </form>
+    <div id="search-container" class="quiz-container">
+      <div>
+        <h1 class="category">Rating</h1>
+        <% for (const quiz of quizzes) { %>
+          <a href="quiz/<%= quiz.id %>">
+            <div class="quiz">
+              <h4><%= quiz.title %></h4>
+              <% const style = `linear-gradient(90deg, blue ${Math.round(quiz.average_rating*200)/10}%, black ${Math.round(quiz.average_rating*200)/10}%)` %>
+              <span style="background-image: <%=style%>" class="quiz_rating">★★★★★</span>
+              <p><%= quiz.description %></p>
+            </div>
+          </a>
+        <% } %>
       </div>
-    <% } %>
     </div>
-    <% } else { %>
-      <h1>You have no quizzes</h1>
-    <% } %>
-    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-    <script src="/scripts/delete-quiz.js"></script>
-    <script type="text/javascript" src="/scripts/results.js"></script>
   </body>
 </html>

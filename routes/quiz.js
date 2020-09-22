@@ -16,12 +16,12 @@ module.exports = (db) => {
     });
   });
 
-  // Takes you to individual result
-  router.get("/:id/result/:id2", (req, res) => {
+  // Takes you to individual quiz result
+  router.get("/:id/result/:id2/:id3", (req, res) => {
     const userId = req.session.user;
     queries.getQuiz(db, {id: req.params.id2})
     .then((quiz) => {
-      queries.getQuizResult(db, {user_id: req.params.id, quiz_id: req.params.id2})
+      queries.getQuizResult(db, {user_id: req.params.id, quiz_id: req.params.id2, id: req.params.id3})
       .then((result) => {
         queries.getQuizAverageTime(db, {quiz_id: req.params.id2})
         .then((averageTime) => {
@@ -49,7 +49,7 @@ module.exports = (db) => {
     const options = {user_id, quiz_rating: req.body.quiz_rating, quiz_id: req.body.quiz_id, result: score, time_spent: req.body.time_spent};
     queries.insertNewResult(db, options)
     .then((result) => {
-      res.redirect(`/quiz/${user_id}/result/${req.body.quiz_id}`);
+      res.redirect(`/quiz/${user_id}/result/${req.body.quiz_id}/${result.id}`);
     })
   });
 

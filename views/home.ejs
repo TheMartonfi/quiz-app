@@ -10,6 +10,10 @@
   </head>
   <body>
     <%- include('partials/_header') %>
+    <form id='search-form' action="/search" method="POST">
+      <input id="search" type="text" name="search">
+      <button type='submit' class="btn btn-outline-primary">◘</button>
+    </form>
     <div class="quiz-container">
       <div>
         <h1 class="category">Gaming</h1>
@@ -18,6 +22,8 @@
             <a href="quiz/<%= quiz.id %>">
               <div class="quiz">
                 <h4><%= quiz.title %></h4>
+                <% const style = `linear-gradient(90deg, blue ${Math.round(quiz.average_rating*200)/10}%, black ${Math.round(quiz.average_rating*200)/10}%)` %>
+                <span style="background-image: <%=style%>" class="quiz_rating">★★★★★</span>
                 <p><%= quiz.description %></p>
               </div>
             </a>
@@ -31,6 +37,8 @@
             <a href="quiz/<%= quiz.id %>">
               <div class="quiz">
                 <h4><%= quiz.title %></h4>
+                <% const style = `linear-gradient(90deg, blue ${Math.round(quiz.average_rating*200)/10}%, black ${Math.round(quiz.average_rating*200)/10}%)` %>
+                <span style="background-image: <%=style%>" class="quiz_rating">★★★★★</span>
                 <p><%= quiz.description %></p>
               </div>
             </a>
@@ -44,6 +52,8 @@
             <a href="quiz/<%= quiz.id %>">
               <div class="quiz">
                 <h4><%= quiz.title %></h4>
+                <% const style = `linear-gradient(90deg, blue ${Math.round(quiz.average_rating*200)/10}%, black ${Math.round(quiz.average_rating*200)/10}%)` %>
+                <span style="background-image: <%=style%>" class="quiz_rating">★★★★★</span>
                 <p><%= quiz.description %></p>
               </div>
             </a>
@@ -57,6 +67,8 @@
             <a href="quiz/<%= quiz.id %>">
               <div class="quiz">
                 <h4><%= quiz.title %></h4>
+                <% const style = `linear-gradient(90deg, blue ${Math.round(quiz.average_rating*200)/10}%, black ${Math.round(quiz.average_rating*200)/10}%)` %>
+                <span style="background-image: <%=style%>" class="quiz_rating">★★★★★</span>
                 <p><%= quiz.description %></p>
               </div>
             </a>
@@ -70,6 +82,8 @@
             <a href="quiz/<%= quiz.id %>">
               <div class="quiz">
                 <h4><%= quiz.title %></h4>
+                <% const style = `linear-gradient(90deg, blue ${Math.round(quiz.average_rating*200)/10}%, black ${Math.round(quiz.average_rating*200)/10}%)` %>
+                <span style="background-image: <%=style%>" class="quiz_rating">★★★★★</span>
                 <p><%= quiz.description %></p>
               </div>
             </a>
@@ -83,6 +97,8 @@
             <a href="quiz/<%= quiz.id %>">
               <div class="quiz">
                 <h4><%= quiz.title %></h4>
+                <% const style = `linear-gradient(90deg, blue ${Math.round(quiz.average_rating*200)/10}%, black ${Math.round(quiz.average_rating*200)/10}%)` %>
+                <span style="background-image: <%=style%>" class="quiz_rating">★★★★★</span>
                 <p><%= quiz.description %></p>
               </div>
             </a>

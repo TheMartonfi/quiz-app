@@ -3,6 +3,7 @@ const getQuiz = require('./queries/1_quizzes/2_getQuiz');
 const getAllUsersQuizzes = require('./queries/1_quizzes/3_getAllUsersQuizzes');
 const insertNewQuiz = require('./queries/1_quizzes/4_insertNewQuiz');
 const deleteQuiz = require('./queries/1_quizzes/5_deleteQuiz');
+const searchQuizzes = require('./queries/1_quizzes/6_searchQuizzes');
 
 const insertNewQuestion = require('./queries/2_questions/1_insertNewQuestion');
 const getQuestions = require('./queries/2_questions/2_getQuestions');
