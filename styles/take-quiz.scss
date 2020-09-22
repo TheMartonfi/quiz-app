@@ -1,10 +1,12 @@
 #timer {
-  top: 60px;
-  left: 10px;
+  top: 7px;
+  right: 16px;
+  color: white;
   position: fixed;
   font-family: $secondary-font;
   font-weight: bold;
   font-size: 1.75em;
+  z-index: 2;
 }
 
 #take-quiz {
