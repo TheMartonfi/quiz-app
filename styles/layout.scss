@@ -108,10 +108,12 @@ nav a {
   right: 0;
   margin-right: 2%;
 }
+
 #search-form {
   display: flex;
   justify-content: flex-end;
 }
+
 #search-form > input{
   height: 100%;
   width: 40%;
@@ -119,10 +121,12 @@ nav a {
   margin-top: 7px;
   transform: scaleY(1.5);
 }
+
 #search-container > div{
   height: auto;
   min-height: 80vh;
 }
+
 .quiz_rating {
   background-image: linear-gradient(90deg, blue 60%, black 60%);
   color: transparent;
@@ -133,15 +137,18 @@ nav a {
   outline: none;
   float: right;
 }
+
 .result-score {
   transform: scale(1.5);
 }
+
 .result-score > div > span {
   border-left: 2px solid black;
   border-top: 20px solid transparent;
   border-radius: 5px;
   margin-left: 20px;
 }
+
 .result-score > p {
   border: 2px solid black;
   width: 200px;
@@ -150,9 +157,11 @@ nav a {
   margin-bottom: 0;
   background-image: linear-gradient(90deg, transparent 60%, blue 60%);
 }
-.result-score > div { 
+
+.result-score > div {
   margin-left: 18px;
 }
+
 .score-letter {
   width: 20px;
 }
