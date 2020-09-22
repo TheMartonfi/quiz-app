@@ -15,10 +15,39 @@
       <% for (const question of questions) { %>
         <h2><%= question.question %></h2>
         <div class="answer-container">
-          <h4 class="a"><input type="checkbox" name="0"><%= question.answer_1 %></h4>
-          <h4 class="b"><input type="checkbox" name="0"><%= question.answer_2 %></h4>
-          <h4 class="c"><input type="checkbox" name="0"><%= question.answer_3 %></h4>
-          <h4 class="d"><input type="checkbox" name="1"><%= question.answer_correct %></h4>
+          <% const order = []%>
+          <% while(order.length < 4) { %>
+
+            <% const rand = Math.ceil(Math.random() * 4) %>
+            <% let notFound = true %>
+
+            <% order.forEach((element) => { %>
+              <% if(element === rand){ %>
+                <% notFound = false; %>
+              <% } %>
+            <% }); %>
+
+            <% if(notFound){ %>
+              <% order.push(rand) %>
+            <% } %>
+
+          <% } %>
+          
+          <% order.forEach((element) => { %>
+            <% if(element === 1){ %>
+              <h4 class="a"><input type="checkbox" name="0"><%= question.answer_1 %></h4>
+            <% } %>
+            <% if(element === 2){ %>
+              <h4 class="b"><input type="checkbox" name="0"><%= question.answer_2 %></h4>
+              <% } %>
+            <% if(element === 3){ %>
+              <h4 class="c"><input type="checkbox" name="0"><%= question.answer_3 %></h4>
+              <% } %>
+            <% if(element === 4){ %>
+              <h4 class="d"><input type="checkbox" name="1"><%= question.answer_correct %></h4>
+              <% } %>
+          <% }); %>
+          
         </div>
       <% } %>
       <span id='stars'>
