@@ -6,6 +6,11 @@ module.exports = (db, body) => {
 
   // This route POSTs a new quiz to the database
   router.post("/:id/quiz/new", (req, res) => {
+    if(req.body.is_unlisted){
+      req.body.is_unlisted = true;
+    } else {
+      req.body.is_unlisted = false;
+    }
     queries.insertNewQuiz(db, req.body, req.session.user)
     .then((quizzes) => {
       res.redirect(`/users/${req.session.user}/quiz/${quizzes.id}/question`)
