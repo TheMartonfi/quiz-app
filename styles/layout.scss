@@ -22,6 +22,14 @@ $secondary-font: 'Rajdhani', sans-serif;
   align-items: center;
 }
 
+header {
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
 a[href="/"] {
   font-family: $primary-font;
 }
@@ -35,6 +43,7 @@ nav a {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
+  margin-top: 80px;
 }
 
 .quiz-container > * {
