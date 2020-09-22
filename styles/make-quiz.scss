@@ -40,3 +40,17 @@
 .div-buttons > * {
   margin-bottom: 10px;
 }
+
+#question-container > h1 {
+  font-family: $primary-font;
+  text-align: center;
+  padding: 10px;
+}
+
+.quiz-question {
+  font-family: $secondary-font;
+  padding: 10px;
+}
+
+
+
