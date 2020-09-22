@@ -43,7 +43,7 @@ module.exports = (db) => {
     }
 
     const user_id = req.session.user || null;
-    const options = {user_id, quiz_rating: req.body.quiz_rating, quiz_id: req.body.quiz_id, result: score};
+    const options = {user_id, quiz_rating: req.body.quiz_rating, quiz_id: req.body.quiz_id, result: score, time_spent: req.body.time_spent};
     queries.insertNewResult(db, options)
     .then((result) => {
       res.redirect(`/quiz/${user_id}/result/${req.body.quiz_id}`);

@@ -32,8 +32,8 @@ $(function() {
     $('#timer').html(timer.getTimeValues().toString());
   });
 
-  $('#timer').click(function () {
-    console.log($('#timer').text())
+  $('#finish-quiz').click(function () {
+    $('input[name=time_spent]').val($('#timer').text())
   });
 
 });

@@ -59,8 +59,9 @@
         <div class='star' val="5">★</div>
       </span>
       <button id="finish-quiz" type="submit" class="btn btn-outline-primary">Submit</button>
-      <input id="rating" type="number" name="quiz_rating" value="0" style="opacity: 0;">
-      <input type="number" name="quiz_id" value="<%= quiz.id %>" style="opacity: 0;">
+      <input id="rating" type="number" name="quiz_rating" value="0" style="display: none;">
+      <input type="number" name="quiz_id" value="<%= quiz.id %>" style="display: none;">
+      <input type="text" name="time_spent" value="" style="display: none;">
       </form>
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
