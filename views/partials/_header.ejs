@@ -1,4 +1,5 @@
 <header>
+  <% if(userId) { %>
   <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #2042ff;">
     <div class="navbar-nav">
       <a class="navbar-brand mb-0 h1" href="/">Quiz</a>
@@ -7,4 +8,13 @@
       <a class="nav-item nav-link" href="/users/<%= userId %>/quiz/new">New Quiz</a>
     </div>
   </nav>
+  <% } else { %>
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #2042ff;">
+      <div class="navbar-nav">
+        <a class="navbar-brand mb-0 h1" href="/">Quiz</a>
+        <a class="nav-item nav-link" href="/users/<%= userId %>/quiz">Login</a>
+        <a class="nav-item nav-link" href="/users/<%= userId %>/quiz">Register</a>
+      </div>
+    </nav>
+  <% } %>
 </header>

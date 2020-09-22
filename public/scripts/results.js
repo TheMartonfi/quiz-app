@@ -10,7 +10,7 @@ function copy(){
 $(function() {
   $(".share-result").on('click', function(event){
     event.preventDefault();
-    $('body').append(`<input id="link-botw" value='localhost:8080/quiz/${$(this).attr('usId')}/result/${$(this).attr('quId')}'>`);
+    $('body').append(`<input id="link-botw" value='localhost:8080/quiz/${$(this).attr('usId')}/result/${$(this).attr('quId')}/${$(this).attr('reId')}'>`);
     copy();
     
   });

@@ -45,6 +45,16 @@ app.get("/", (req, res) => {
   });
 });
 
+// Search Page
+app.post("/search", (req, res) => {
+  const userId = req.session.user;
+  queries.searchQuizzes(db, {search: req.body.search})
+  .then((quizzes) => {
+    console.log(quizzes)
+    res.render("search", {quizzes, userId});
+  });
+});
+
 // Hacker login route
 app.get("/login/:user", (req, res) => {
   req.session.user = req.params.user;
