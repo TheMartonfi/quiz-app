@@ -68,7 +68,7 @@ nav a {
   font-family: $secondary-font;
 }
 
-.quiz-container a:hover{
+.quiz-container a:hover {
   text-decoration: none;
 }
 
@@ -96,6 +96,7 @@ nav a {
   right: 0;
   margin-right: 2%;
 }
+
 #share-card {
   width: 100%;
   height: 100%;
@@ -106,6 +107,7 @@ nav a {
   justify-content: center;
   align-items: center;
 }
+
 #share-card > div {
   width: 40%;
   background-color: $secondary-color;
@@ -114,6 +116,7 @@ nav a {
   border-radius: 5px;
   font-size: 2em;
 }
+
 #share-card > button {
   background-color: $primary-color;
   border: 2px solid black;
@@ -122,20 +125,28 @@ nav a {
   border-radius: 5px;
   font-size: 2em;
 }
+
 #share-card > #exit {
   background-color: red;
   color: $secondary-color;
 }
+
 #stars {
   font-size: 6em;
   display: flex;
   flex-direction: row;
 }
+
 .star:hover {
   cursor: pointer;
   color: $primary-color;
 }
+
 .rated {
   color: $primary-color;
   outline: $secondary-color;
+}
+
+.rated:hover {
+  cursor: pointer;
 }
