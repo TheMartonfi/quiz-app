@@ -20,6 +20,7 @@
           <h2><%= result.title %></h2>
           <h3><%= result.category %></h3>
           <h4>Score: <%= result.result %></h4>
+          <h4>Average Score: <%= Math.round(result.average_score) %>%</h4>
           <h4>Time Spent: <%= result.time_spent %></h4>
           <% for (const averageTime of averageTimes) { %>
             <% if (result.quiz_id === averageTime.id) { %>

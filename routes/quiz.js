@@ -25,7 +25,25 @@ module.exports = (db) => {
       .then((result) => {
         queries.getQuizAverageTime(db, {quiz_id: req.params.id2})
         .then((averageTime) => {
-          res.render("result", {quiz, result, averageTime, userId});
+          queries.getQuizResults(db, {quiz_id: req.params.id2})
+          .then((results) => {
+            const averageArr = []
+            results.forEach(element => {
+              if(element.result.length === 2){
+                averageArr.push(Number(element.result[0]))
+              } else {
+                averageArr.push(Number(element.result[0] + element.result[1]))
+              }
+            });
+            let average_score = 0;
+            averageArr.forEach((element) => {
+              average_score += element;
+            })
+            average_score /= averageArr.length;
+            average_score = Math.round(average_score * 10) / 10
+
+            res.render("result", {quiz, result, averageTime, userId, average_score});
+          })
         });
       });
     });
