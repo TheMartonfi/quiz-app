@@ -3,6 +3,7 @@
   flex-wrap: wrap;
   justify-content: flex-start;
   font-family: $secondary-font;
+  margin-left: 8%;
 }
 
 .results {
@@ -35,6 +36,9 @@
   margin-top: 20px;
   font-family: $primary-font;
   margin-top: 80px;
+  width: 100%;
+  border-bottom: 5px solid rgb(233, 233, 233);
+  background-color: rgb(233, 233, 233);;
 }
 
 #result-container {
