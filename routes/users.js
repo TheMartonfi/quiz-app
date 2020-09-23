@@ -4,6 +4,7 @@ const queries = require('../db/queries');
 
 module.exports = (db, body) => {
 
+  // ***********************************************
   // This route POSTs a new quiz to the database
   router.post("/:id/quiz/new", (req, res) => {
     if(req.body.is_unlisted){
@@ -13,6 +14,7 @@ module.exports = (db, body) => {
     }
     queries.insertNewQuiz(db, req.body, req.session.user)
     .then((quizzes) => {
+      console.log(req.body);
       res.redirect(`/users/${req.session.user}/quiz/${quizzes.id}/question`)
     });
   });
