@@ -31,14 +31,17 @@
           <img src="<%= question.image %>"/>
         <% } %>
 
-        <% if (question.audio !== ' ' && question.audio !== null) { %>
+        <% if (question.video) { %>
+          <iframe width='1280' height='720' src="http://www.youtube.com/embed/<%= question.video %>"></iframe>
+        <% } %>
+
+        <% if (question.audio !== null) { %>
           <audio controls>
             <source src="<%= question.audio %>" type="audio/mpeg"/>
             <source src="<%= question.audio %>" type="audio/ogg"/>
             <source src="<%= question.audio %>" type="audio/wav"/>
           </audio>
         <% } %>
-
         <div class="answer-container">
           <% const order = []%>
           <% while(order.length < 4) { %>
