@@ -40,6 +40,11 @@
             <h4>Average Time Spent: 00:00:<%= averageTime.average_time.seconds %></h4>
           <% } %>
         <% } %>
+        <div class='row-container'>
+          <button reId="<%= result.id %>" usId="<%= result.user_id %>" quId="<%= result.quiz_id %>" type="button" class="btn btn-outline-primary share-result">Share Result</button>
+          <button quId="<%= result.quiz_id %>" type="button" class="btn btn-outline-primary share-quiz">Share Quiz</button>
+        </div>
+
         <h4 class='result-score'>
           <% const style = `linear-gradient(90deg, blue ${result.result}, transparent ${result.result})` %>
           <p style='background-image: <%=style%>'></p>
@@ -50,8 +55,6 @@
             <span class="score-letter">A</span>
           </div>
         </h4>
-        <button reId="<%= result.id %>" usId="<%= result.user_id %>" quId="<%= result.quiz_id %>" type="button" class="btn btn-outline-primary share-result">Share Result</button>
-        <button quId="<%= result.quiz_id %>" type="button" class="btn btn-outline-primary share-quiz">Share Quiz</button>
       </div>
     </div>
     <% } else { %>
