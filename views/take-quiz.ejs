@@ -20,6 +20,9 @@
       <h1><%= quiz.title %></h1>
       <% for (const question of questions) { %>
         <h2><%= question.question %></h2>
+        <% if (question.image !== null) { %>
+          <img src="<%= question.image %>"/>
+        <% } %>
         <div class="answer-container">
           <% const order = []%>
           <% while(order.length < 4) { %>

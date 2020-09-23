@@ -13,16 +13,18 @@
     <div id='new-questions'>
       <form id="new-quiz-container" method="POST">
         <h1 name="quiz_id"><%= quiz.title %></h1>
-        <label for="question">New Question</label>
+        <label for="question">New Question*</label>
         <input id="question" type="text" name="question">
-        <label for="answer_1">Answer 1</label>
+        <label for="answer_1">Answer 1*</label>
         <input id="answer-1" type="text" name="answer_1">
-        <label for="answer_2">Answer 2</label>
+        <label for="answer_2">Answer 2*</label>
         <input id="answer-2" type="text" name="answer_2">
-        <label for="answer_3">Answer 3</label>
+        <label for="answer_3">Answer 3*</label>
         <input id="answer-3" type="text" name="answer_3">
-        <label for="answer_correct">Correct Answer</label>
+        <label for="answer_correct">Correct Answer*</label>
         <input id="correct-answer" type="text" name="answer_correct">
+        <label for="answer_correct">Image url</label>
+        <input id="image" type="text" name="image">
         <input id="qId" type="number" name="quiz_id" value="<%=quiz_id%>" style="opacity: 0;">
         <div class='div-buttons'>
           <button type="submit" class="btn btn-outline-primary">Add Question</button>
