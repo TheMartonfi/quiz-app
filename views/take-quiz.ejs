@@ -14,7 +14,7 @@
   </head>
   <body>
     <%- include('partials/_header') %>
-    <div id="timer">00:00:00</div>
+    <div id="timer" class='red-timer'><%= quiz.time_limit %></div>
     <% if(quiz){ %>
     <form action="/quiz/result/new" method="POST" id="take-quiz">
       <h1><%= quiz.title %></h1>

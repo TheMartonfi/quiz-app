@@ -22,6 +22,16 @@ $secondary-font: 'Rajdhani', sans-serif;
   align-items: center;
 }
 
+%timer {
+  top: 7px;
+  right: 16px;
+  position: fixed;
+  font-family: $secondary-font;
+  font-weight: bold;
+  font-size: 1.75em;
+  z-index: 2;
+}
+
 header {
   overflow: hidden;
   position: fixed;
@@ -143,7 +153,7 @@ nav a {
   border: none;
   outline: none;
   float: right;
-  
+
 }
 
 .result-score {

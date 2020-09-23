@@ -26,28 +26,48 @@ $(function() {
     });
   });
 
-  var timer = new Timer();
+  let $timer = $('#timer');
+  const timer = new Timer();
   timer.start();
   timer.addEventListener('secondsUpdated', function(e) {
     const currentTime = timer.getTimeValues().toString();
     const timeLimit = $('input[name=time_limit]').val();
-
-    $('#timer').html(currentTime);
-
-    // If there's less than 30 seconds turn timer red
     const dateTimeCurrent = new Date('1970-01-01T' + currentTime + 'Z');
     const dateTimeLimit = new Date('1970-01-01T' + timeLimit + 'Z');
+    const currentTimeInSeconds = Date.parse(dateTimeCurrent) / 1000;
+    const timeLimitInSeconds = Date.parse(dateTimeLimit) / 1000;
+    const timeRemaining = timeLimitInSeconds - currentTimeInSeconds;
+    let secondsRemaining = timeRemaining % 60;
+    let minutesRemaining = Math.floor(timeRemaining / 60);
 
-    console.log(Date.parse(dateTimeCurrent) / 1000);
-    console.log(Date.parse(dateTimeLimit) / 1000);
+     if (minutesRemaining < 10) {
+      minutesRemaining = '0' + minutesRemaining;
+     }
+
+     if (secondsRemaining < 10) {
+       secondsRemaining = '0' + secondsRemaining;
+     }
+
+    // Once we have quizzes NaN will be switched to 00:00:00
+    if (isNaN(timeRemaining)) {
+      $timer.html(currentTime);
+    } else {
+      $timer.html(`00:${minutesRemaining}:${secondsRemaining}`);
+    }
+
+    if (timeRemaining <= 30) {
+      $timer.attr("id", "red-timer");
+      $timer = $('#red-timer');
+    }
 
     if (currentTime === timeLimit) {
       $('#finish-quiz').trigger('click');
     }
+
   });
 
   $('#finish-quiz').click(function () {
-    $('input[name=time_spent]').val($('#timer').text())
+    $('input[name=time_spent]').val(timer.getTimeValues().toString());
   });
 
 });

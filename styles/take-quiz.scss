@@ -1,12 +1,11 @@
 #timer {
-  top: 7px;
-  right: 16px;
-  color: white;
-  position: fixed;
-  font-family: $secondary-font;
-  font-weight: bold;
-  font-size: 1.75em;
-  z-index: 2;
+@extend %timer;
+color: white;
+}
+
+#red-timer {
+  @extend %timer;
+  color: red;
 }
 
 #take-quiz {
