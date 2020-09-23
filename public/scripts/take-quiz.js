@@ -34,6 +34,13 @@ $(function() {
 
     $('#timer').html(currentTime);
 
+    // If there's less than 30 seconds turn timer red
+    const dateTimeCurrent = new Date('1970-01-01T' + currentTime + 'Z');
+    const dateTimeLimit = new Date('1970-01-01T' + timeLimit + 'Z');
+
+    console.log(Date.parse(dateTimeCurrent) / 1000);
+    console.log(Date.parse(dateTimeLimit) / 1000);
+
     if (currentTime === timeLimit) {
       $('#finish-quiz').trigger('click');
     }

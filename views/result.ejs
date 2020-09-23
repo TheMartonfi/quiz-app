@@ -20,7 +20,11 @@
         <h4>Score: <%= result.result %></h4>
         <h4>Average Score: <%= average_score %>%</h4>
         <h4>Time Spent: <%= result.time_spent %></h4>
+        <% if (averageTime.average_time.seconds === undefined) { %>
+          <% averageTime.average_time.seconds = '0' %>
+        <% } %>
         <% if (averageTime.average_time.minutes) { %>
+          <% console.log(averageTime.average_time.seconds) %>
           <% if (averageTime.average_time.minutes < 10 && averageTime.average_time.seconds < 10) { %>
             <h4>Average Time Spent: 00:0<%= averageTime.average_time.minutes %>:0<%= averageTime.average_time.seconds %></h4>
           <% } else if (averageTime.average_time.minutes < 10) { %>
