@@ -17,7 +17,7 @@
     <div id="timer">00:00:00</div>
     <% if(quiz){ %>
     <form action="/quiz/result/new" method="POST" id="take-quiz">
-      <div  id="quiz-title">
+      <div class="quiz-title">
         <h1><%= quiz.title %></h1>
         <% if(quiz.image !== null){ %>
           <img src='<%= quiz.image %>'/>
@@ -36,11 +36,13 @@
         <% } %>
 
         <% if (question.audio !== null) { %>
-          <audio controls>
-            <source src="<%= question.audio %>" type="audio/mpeg"/>
-            <source src="<%= question.audio %>" type="audio/ogg"/>
-            <source src="<%= question.audio %>" type="audio/wav"/>
-          </audio>
+          <% if (question.audio.length > 1) { %>
+            <audio controls>
+              <source src="<%= question.audio %>" type="audio/mpeg"/>
+              <source src="<%= question.audio %>" type="audio/ogg"/>
+              <source src="<%= question.audio %>" type="audio/wav"/>
+            </audio>
+          <% } %>
         <% } %>
         <div class="answer-container">
           <% const order = []%>

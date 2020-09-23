@@ -178,3 +178,16 @@ nav a {
   display: flex;
   flex-direction: row;
 }
+.quiz-banner {
+  background-color: gray;
+  height: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  margin-top: -15px;
+  overflow-y: hidden;
+}
+.quiz-banner > img {
+  width: 100%;
+}
