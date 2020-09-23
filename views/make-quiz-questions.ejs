@@ -13,16 +13,22 @@
     <div id='new-questions'>
       <form id="new-quiz-container" method="POST">
         <h1 name="quiz_id"><%= quiz.title %></h1>
-        <label for="question">New Question</label>
+        <label for="question">New Question*</label>
         <input id="question" type="text" name="question">
-        <label for="answer_1">Answer 1</label>
+        <label for="answer_1">Answer 1*</label>
         <input id="answer-1" type="text" name="answer_1">
-        <label for="answer_2">Answer 2</label>
+        <label for="answer_2">Answer 2*</label>
         <input id="answer-2" type="text" name="answer_2">
-        <label for="answer_3">Answer 3</label>
+        <label for="answer_3">Answer 3*</label>
         <input id="answer-3" type="text" name="answer_3">
-        <label for="answer_correct">Correct Answer</label>
+        <label for="answer_correct">Correct Answer*</label>
         <input id="correct-answer" type="text" name="answer_correct">
+        <label for="image">Image url <i class="fas fa-file-image"></i></label>
+        <input id="image" type="text" name="image">
+        <label for="audio">Audio url <i class="fas fa-file-audio"></i></label>
+        <input id="audio" type="text" name="audio">
+        <label for="video">Youtube Video Id <i class="fab fa-youtube"></i></label>
+        <input id="video" type="text" name="video">
         <input id="qId" type="number" name="quiz_id" value="<%=quiz_id%>" style="opacity: 0;">
         <div class='div-buttons'>
           <button type="submit" class="btn btn-outline-primary">Add Question</button>
@@ -45,5 +51,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="/scripts/make-quiz-questions.js"></script>
+    <script src="https://kit.fontawesome.com/8354918fc8.js" crossorigin="anonymous"></script>
+
   </body>
 </html>

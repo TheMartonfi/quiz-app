@@ -17,10 +17,12 @@
       <div class="delete">
         <h1><%= quiz.title %></h1>
         <h2><%= quiz.category %></h2>
-        <form>
-          <button type="submit" class="btn btn-outline-danger" id="/users/<%= userId %>/quiz/<%= quiz.id %>/delete">Delete</button>
-        </form>
-        <button quId="<%= quiz.id %>" type="button" class="btn btn-outline-primary share-quiz">Share Quiz</button>
+        <div class='row-container'>
+          <button quId="<%= quiz.id %>" type="button" class="btn btn-outline-primary share-quiz"><i class="fab fa-usb"></i></button>
+          <form>
+            <button type="submit" class="btn btn-outline-danger" id="/users/<%= userId %>/quiz/<%= quiz.id %>/delete"><i class="fas fa-trash-alt"></i></button>
+          </form>
+        </div>
       </div>
     <% } %>
     </div>
@@ -32,5 +34,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <script src="/scripts/delete-quiz.js"></script>
     <script type="text/javascript" src="/scripts/results.js"></script>
+    <script src="https://kit.fontawesome.com/8354918fc8.js" crossorigin="anonymous"></script>
   </body>
 </html>
