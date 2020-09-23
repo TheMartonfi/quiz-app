@@ -80,12 +80,10 @@
   background-color: red;
   color: $secondary-color;
 }
-.single-result {
+
+#result-container .results {
   transform-origin: top;
-  transform: scale(2);
-  width: 50%;
-  margin-left: 20%;
-  height: 48vh;
-  border-bottom: none;
-  margin-bottom: 0;
+  transform: scale(1.25);
+  height: 65vh;
+  margin-bottom: 13px;
 }
