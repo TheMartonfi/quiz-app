@@ -20,7 +20,7 @@
         <% for (const quiz of quizzes) { %>
           <% if (quiz.category === 'Gaming') { %>
             <a href="quiz/<%= quiz.id %>">
-              
+
               <div class="quiz">
                 <div class="quiz-banner">
                   <% if(quiz.image !== null){ %>
@@ -31,6 +31,10 @@
                 <% const style = `linear-gradient(90deg, blue ${Math.round(quiz.average_rating*200)/10}%, black ${Math.round(quiz.average_rating*200)/10}%)` %>
                 <span style="background-image: <%=style%>" class="quiz_rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
                 <p><%= quiz.description %></p>
+                <% if (quiz.time_limit === '00:00:00') { %>
+                  <% quiz.time_limit = 'None'; %>
+                <% } %>
+                <h6>Time limit: <%= quiz.time_limit %></h6>
               </div>
             </a>
           <% } %>
@@ -46,6 +50,10 @@
                 <% const style = `linear-gradient(90deg, blue ${Math.round(quiz.average_rating*200)/10}%, black ${Math.round(quiz.average_rating*200)/10}%)` %>
                 <span style="background-image: <%=style%>" class="quiz_rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
                 <p><%= quiz.description %></p>
+                <% if (quiz.time_limit === '00:00:00') { %>
+                  <% quiz.time_limit = 'None'; %>
+                <% } %>
+                <h6>Time limit: <%= quiz.time_limit %></h6>
               </div>
             </a>
           <% } %>
@@ -61,6 +69,10 @@
                 <% const style = `linear-gradient(90deg, blue ${Math.round(quiz.average_rating*200)/10}%, black ${Math.round(quiz.average_rating*200)/10}%)` %>
                 <span style="background-image: <%=style%>" class="quiz_rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
                 <p><%= quiz.description %></p>
+                <% if (quiz.time_limit === '00:00:00') { %>
+                  <% quiz.time_limit = 'None'; %>
+                <% } %>
+                <h6>Time limit: <%= quiz.time_limit %></h6>
               </div>
             </a>
           <% } %>
@@ -76,6 +88,10 @@
                 <% const style = `linear-gradient(90deg, blue ${Math.round(quiz.average_rating*200)/10}%, black ${Math.round(quiz.average_rating*200)/10}%)` %>
                 <span style="background-image: <%=style%>" class="quiz_rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
                 <p><%= quiz.description %></p>
+                <% if (quiz.time_limit === '00:00:00') { %>
+                  <% quiz.time_limit = 'None'; %>
+                <% } %>
+                <h6>Time limit: <%= quiz.time_limit %></h6>
               </div>
             </a>
           <% } %>
@@ -91,6 +107,10 @@
                 <% const style = `linear-gradient(90deg, blue ${Math.round(quiz.average_rating*200)/10}%, black ${Math.round(quiz.average_rating*200)/10}%)` %>
                 <span style="background-image: <%=style%>" class="quiz_rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
                 <p><%= quiz.description %></p>
+                <% if (quiz.time_limit === '00:00:00') { %>
+                  <% quiz.time_limit = 'None'; %>
+                <% } %>
+                <h6>Time limit: <%= quiz.time_limit %></h6>
               </div>
             </a>
           <% } %>
@@ -106,6 +126,10 @@
                 <% const style = `linear-gradient(90deg, blue ${Math.round(quiz.average_rating*200)/10}%, black ${Math.round(quiz.average_rating*200)/10}%)` %>
                 <span style="background-image: <%=style%>" class="quiz_rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
                 <p><%= quiz.description %></p>
+                <% if (quiz.time_limit === '00:00:00') { %>
+                  <% quiz.time_limit = 'None'; %>
+                <% } %>
+                <h6>Time limit: <%= quiz.time_limit %></h6>
               </div>
             </a>
           <% } %>
