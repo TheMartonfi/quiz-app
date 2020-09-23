@@ -131,11 +131,13 @@ nav a {
   background-image: linear-gradient(90deg, blue 60%, black 60%);
   color: transparent;
   -webkit-background-clip: text;
+  -webkit-text-stroke: $secondary-color 1px;
   width: auto;
   font-size: 2em;
   border: none;
   outline: none;
   float: right;
+  
 }
 
 .result-score {
