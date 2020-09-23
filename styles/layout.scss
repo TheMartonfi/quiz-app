@@ -68,6 +68,10 @@ nav a {
   overflow-y: scroll;
 }
 
+.quiz h4, p, h6 {
+  width: 60%;
+}
+
 .category {
   text-align: center;
   border: 2px solid black;
@@ -77,6 +81,8 @@ nav a {
 }
 
 .quiz {
+  display: flex;
+  flex-direction: column;
   color: black;
   text-decoration: none;
   text-align: left;
@@ -88,7 +94,9 @@ nav a {
 }
 
 .quiz > * {
-  margin-left: 5px;
+  margin-top: 10px;
+  margin-left: 10px;
+  order: 2;
 }
 
 .quiz-container a:hover {
@@ -152,7 +160,9 @@ nav a {
   font-size: 2em;
   border: none;
   outline: none;
-  float: right;
+  margin-right: 5px;
+  align-self: flex-end;
+  order: 3;
 }
 
 .result-score {
@@ -189,6 +199,7 @@ nav a {
   flex-direction: row;
 }
 .quiz-banner {
+  order: 0;
   background-color: gray;
   height: 90px;
   display: flex;
