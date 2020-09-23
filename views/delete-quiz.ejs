@@ -19,6 +19,7 @@
         <h1><%= quiz.title %></h1>
         <h2><%= quiz.category %></h2>
         <div class='row-container'>
+          <a href="/users/<%=userId %>/quiz/<%= quiz.id %>/question" class="btn btn-outline-primary"><i class="fas fa-edit"></i></a>
           <button quId="<%= quiz.id %>" type="button" class="btn btn-outline-primary share-quiz"><i class="fab fa-usb"></i></button>
           <form>
             <button type="submit" class="btn btn-outline-danger" id="/users/<%= userId %>/quiz/<%= quiz.id %>/delete"><i class="fas fa-trash-alt"></i></button>

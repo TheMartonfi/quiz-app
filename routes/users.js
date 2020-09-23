@@ -51,10 +51,17 @@ module.exports = (db, body) => {
   // This route brings you to the all quizzes page and allows you to delete quizzes
   router.get("/:id/quiz", (req, res) => {
     const userId = req.session.user;
-    queries.getAllUsersQuizzes(db, {id: req.params.id})
-    .then((quizzes) => {
-      res.render("delete-quiz", {quizzes, userId});
-    });
+    if(userId === req.params.id){
+      queries.getAllUsersQuizzes(db, {id: req.params.id})
+      .then((quizzes) => {
+        res.render("delete-quiz", {quizzes, userId});
+      });
+    } else {
+      queries.getAllUsersQuizzes(db, {id: req.params.id})
+      .then((quizzes) => {
+        res.render("delete-quiz", {quizzes, userId: req.params.id});
+      });
+    }
   });
 
   // This route DELETEs a quiz from the database
