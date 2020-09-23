@@ -17,7 +17,13 @@
     <div id="timer">00:00:00</div>
     <% if(quiz){ %>
     <form action="/quiz/result/new" method="POST" id="take-quiz">
-      <h1><%= quiz.title %></h1>
+      <div  id="quiz-title">
+        <h1><%= quiz.title %></h1>
+        <% if(quiz.image !== null){ %>
+          <img src='<%= quiz.image %>'/>
+        <% } %>
+      </div>
+
       <% for (const question of questions) { %>
         <h2><%= question.question %></h2>
 
@@ -25,7 +31,7 @@
           <img src="<%= question.image %>"/>
         <% } %>
 
-        <% if (question.audio !== null) { %>
+        <% if (question.audio !== ' ' && question.audio !== null) { %>
           <audio controls>
             <source src="<%= question.audio %>" type="audio/mpeg"/>
             <source src="<%= question.audio %>" type="audio/ogg"/>
