@@ -1,9 +1,9 @@
 const express = require('express');
 const router  = express.Router();
 const queries = require('../db/queries');
+const chalk = require('chalk');
 
 module.exports = (db, body) => {
-
   // This route POSTs a new quiz to the database
   router.post("/:id/quiz/new", (req, res) => {
     if(req.body.is_unlisted){
@@ -14,6 +14,16 @@ module.exports = (db, body) => {
 
     if (req.body.time_limit === "") {
       req.body.time_limit = "00:00:00"
+    }
+
+    if (req.body.title.length > 17) {
+      console.log(chalk.red("\nTitle too long!\n"));
+      return res.redirect(`/users/${req.params.id}/quiz/new`);
+    }
+
+    if (req.body.category === "") {
+      console.log(chalk.red("\nPlease pick a category!\n"));
+      return res.redirect(`/users/${req.params.id}/quiz/new`);
     }
 
     queries.insertNewQuiz(db, req.body, req.session.user)
