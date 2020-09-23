@@ -1,12 +1,27 @@
 $(function() {
   let rating = 0;
 
+  let answers = document.getElementsByClassName('answer-container');
+  console.log(answers.length)
+
+  let answered = 0;
+  
   $("h4 > input:checkbox").on('click', function() {
     $(this).parent().parent().children().children().prop("checked", false);
     $(this).prop("checked", true);
   });
 
   $("h4").on('click', function() {
+    let unAnswered = true
+    for(let i = 0; i < 4; i++){
+      if($(this).parent().children().children()[i].checked === true){
+        unAnswered = false
+      }
+    }
+    if(unAnswered === true){
+      answered++;
+    }
+    console.log(answered)
     $(this).parent().children().children().prop("checked", false);
     $(this).children().prop("checked", true);
   });
@@ -66,7 +81,11 @@ $(function() {
   });
 
   $('#finish-quiz').click(function () {
-    $('input[name=time_spent]').val(timer.getTimeValues().toString());
+    if(answered === answers.length){
+      $('input[name=time_spent]').val(timer.getTimeValues().toString());
+    } else {
+      alert('Finish the questions first');
+    }
   });
 
 });

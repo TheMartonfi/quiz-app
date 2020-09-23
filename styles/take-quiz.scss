@@ -1,12 +1,13 @@
 #timer {
-@extend %timer;
-color: white;
-}
-
-#red-timer {
   @extend %timer;
-  color: red;
-}
+  color: white;
+  }
+  
+  #red-timer {
+    @extend %timer;
+    color: red;
+  }
+  
 
 #take-quiz {
   @extend %flex-center;
@@ -109,7 +110,7 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0;
+  margin-top: -25px;
   overflow-y: hidden;
 }
 

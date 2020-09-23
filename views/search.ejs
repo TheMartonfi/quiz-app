@@ -12,7 +12,7 @@
     <%- include('partials/_header') %>
     <form id='search-form' action="/search" method="POST">
       <input id="search" type="text" name="search">
-      <button type='submit' class="btn btn-outline-primary">◘</button>
+      <button type='submit' class="btn btn-outline-primary"><i class="fas fa-search"></i></button>
     </form>
     <div id="search-container" class="quiz-container">
       <div>
@@ -20,9 +20,14 @@
         <% for (const quiz of quizzes) { %>
           <a href="quiz/<%= quiz.id %>">
             <div class="quiz">
+              <div class="quiz-banner">
+                <% if(quiz.image !== null){ %>
+                  <img src='<%= quiz.image %>'/>
+                <% } %>
+              </div>
               <h4><%= quiz.title %></h4>
               <% const style = `linear-gradient(90deg, blue ${Math.round(quiz.average_rating*200)/10}%, black ${Math.round(quiz.average_rating*200)/10}%)` %>
-              <span style="background-image: <%=style%>" class="quiz_rating">★★★★★</span>
+              <span style="background-image: <%=style%>" class="quiz_rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
               <p><%= quiz.description %></p>
             </div>
           </a>
@@ -32,5 +37,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/8354918fc8.js" crossorigin="anonymous"></script>
   </body>
 </html>

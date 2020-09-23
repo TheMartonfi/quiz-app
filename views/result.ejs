@@ -11,10 +11,9 @@
   <body>
     <%- include('partials/_header') %>
     <% if(result && quiz) {  %>
-      <% console.log(result) %>
     <h1 class="username"><%= result.username %></h1>
-    <div id="result-container">
-      <div class="results">
+    <div id="results-container">
+      <div class="results single-result">
         <h1>Result</h1>
         <h2><%= quiz.title %></h2>
         <h3><%= quiz.category %></h3>
@@ -42,6 +41,11 @@
             <h4>Average Time Spent: 00:00:<%= averageTime.average_time.seconds %></h4>
           <% } %>
         <% } %>
+        <div class='row-container'>
+          <button reId="<%= result.id %>" usId="<%= result.user_id %>" quId="<%= result.quiz_id %>" type="button" class="btn btn-outline-primary share-result">Share Result</button>
+          <button quId="<%= result.quiz_id %>" type="button" class="btn btn-outline-primary share-quiz">Share Quiz</button>
+        </div>
+
         <h4 class='result-score'>
           <% const style = `linear-gradient(90deg, blue ${result.result}, transparent ${result.result})` %>
           <p style='background-image: <%=style%>'></p>
@@ -52,8 +56,6 @@
             <span class="score-letter">A</span>
           </div>
         </h4>
-        <button reId="<%= result.id %>" usId="<%= result.user_id %>" quId="<%= result.quiz_id %>" type="button" class="btn btn-outline-primary share-result">Share Result</button>
-        <button quId="<%= result.quiz_id %>" type="button" class="btn btn-outline-primary share-quiz">Share Quiz</button>
       </div>
     </div>
     <% } else { %>
