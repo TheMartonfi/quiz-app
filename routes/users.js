@@ -71,7 +71,18 @@ module.exports = (db, body) => {
     .then((results) => {
       queries.getQuizAverageTimes(db)
       .then((averageTimes) => {
-        res.render("results", {results, averageTimes, userId});
+        queries.getAverageScore(db)
+        .then((averageScores) => {
+          console.log(averageScores)
+          results.forEach(result => {
+            averageScores.forEach((score) => {
+              if(result.quiz_id === score.quiz_id){
+                result.average_score = score.avg;
+              }
+            })
+          });
+          res.render("results", {results, averageTimes, userId});
+        });
       });
     });
   });
