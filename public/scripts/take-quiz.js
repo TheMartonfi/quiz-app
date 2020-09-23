@@ -48,14 +48,13 @@ $(function() {
        secondsRemaining = '0' + secondsRemaining;
      }
 
-    // Once we have quizzes NaN will be switched to 00:00:00
-    if (isNaN(timeRemaining)) {
+    if (timeLimit === "00:00:00") {
       $timer.html(currentTime);
     } else {
       $timer.html(`00:${minutesRemaining}:${secondsRemaining}`);
     }
-
-    if (timeRemaining <= 30) {
+    console.log(timeRemaining);
+    if (timeRemaining <= 30 && Math.sign(timeRemaining) === 1) {
       $timer.attr("id", "red-timer");
       $timer = $('#red-timer');
     }
