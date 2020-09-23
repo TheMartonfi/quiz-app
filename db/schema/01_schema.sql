@@ -26,7 +26,9 @@ CREATE TABLE questions_and_answers (
   answer_1 VARCHAR(255) NOT NULL,
   answer_2 VARCHAR(255) NOT NULL,
   answer_3 VARCHAR(255) NOT NULL,
-  answer_correct VARCHAR(255) NOT NULL
+  answer_correct VARCHAR(255) NOT NULL,
+  image text DEFAULT NULL,
+  audio text DEFAULT NULL
 );
 
 CREATE TABLE results (
