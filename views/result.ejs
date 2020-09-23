@@ -11,9 +11,8 @@
   <body>
     <%- include('partials/_header') %>
     <% if(result && quiz) {  %>
-    <h1 class="username"><%= result.username %> </h1>
-    <div id="result-container">
-      <div class="results">
+    <div id="results-container">
+      <div class="results single-result">
         <h1>Result</h1>
         <h2><%= quiz.title %></h2>
         <h3><%= quiz.category %></h3>

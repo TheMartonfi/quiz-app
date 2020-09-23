@@ -79,3 +79,11 @@
   background-color: red;
   color: $secondary-color;
 }
+.single-result {
+  transform-origin: top;
+  transform: scale(2);
+  width: 50%;
+  margin-left: 20%;
+  height: 47vh;
+  border-bottom: none;
+}
