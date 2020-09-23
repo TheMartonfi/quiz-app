@@ -18,6 +18,7 @@
         <h2><%= quiz.title %></h2>
         <h3><%= quiz.category %></h3>
         <h4>Score: <%= result.result %></h4>
+        <h4>Average Score: <%= average_score %>%</h4>
         <h4>Time Spent: <%= result.time_spent %></h4>
         <% if (averageTime.average_time.minutes) { %>
           <% if (averageTime.average_time.minutes < 10 && averageTime.average_time.seconds < 10) { %>
