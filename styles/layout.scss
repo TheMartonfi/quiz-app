@@ -112,6 +112,11 @@ nav a {
 #search-form {
   display: flex;
   justify-content: flex-end;
+  position: fixed;
+  width: 45vw;
+  top: 8px;
+  right: 10px;
+  z-index: 2;
 }
 
 #search-form > input{
