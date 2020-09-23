@@ -29,7 +29,14 @@ $(function() {
   var timer = new Timer();
   timer.start();
   timer.addEventListener('secondsUpdated', function(e) {
-    $('#timer').html(timer.getTimeValues().toString());
+    const currentTime = timer.getTimeValues().toString();
+    const timeLimit = $('input[name=time_limit]').val();
+
+    $('#timer').html(currentTime);
+
+    if (currentTime === timeLimit) {
+      $('#finish-quiz').trigger('click');
+    }
   });
 
   $('#finish-quiz').click(function () {
