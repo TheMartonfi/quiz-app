@@ -42,7 +42,6 @@
               <% } %>
             <% } %>
           <% } %>
-          <button usId="<%= result.user_id %>" quId="<%= result.quiz_id %>" type="button" class="btn btn-outline-primary share-result">Share Result</button>
           <h4 class='result-score'>
             <% const style = `linear-gradient(90deg, blue ${result.result}, transparent ${result.result})` %>
             <p style='background-image: <%=style%>'></p>
@@ -52,7 +51,6 @@
               <span class="score-letter">B</span>
               <span class="score-letter">A</span>
             </div>
-            <%= result.result %>
           </h4>
           <button reId="<%= result.id %>" usId="<%= result.user_id %>" quId="<%= result.quiz_id %>" type="button" class="btn btn-outline-primary share-result">Share Result</button>
           <button quId="<%= result.quiz_id %>" type="button" class="btn btn-outline-primary share-quiz">Share Quiz</button>
