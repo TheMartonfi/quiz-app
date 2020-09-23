@@ -4,10 +4,10 @@ const insertNewQuiz = function(db, options, id){
     options.is_unlisted = false;
   }
   return db.query(`
-  INSERT INTO quizzes (owner_id, title, category, description, is_unlisted)
-  VALUES ($1, $2, $3, $4, $5)
+  INSERT INTO quizzes (owner_id, title, category, description, time_limit, is_unlisted)
+  VALUES ($1, $2, $3, $4, $5, $6)
   RETURNING *`,
-  [id, options.title, options.category, options.description, options.is_unlisted])
+  [id, options.title, options.category, options.description, options.time_limit, options.is_unlisted])
   .then(res => res.rows[0]);
 }
 module.exports = insertNewQuiz;
