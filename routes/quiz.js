@@ -23,6 +23,7 @@ module.exports = (db) => {
     .then((quiz) => {
       queries.getQuizResult(db, {user_id: req.params.id, quiz_id: req.params.id2, id: req.params.id3})
       .then((result) => {
+        console.log(result);
         queries.getQuizAverageTime(db, {quiz_id: req.params.id2})
         .then((averageTime) => {
           queries.getQuizResults(db, {quiz_id: req.params.id2})
