@@ -12,10 +12,13 @@ module.exports = (db, body) => {
     } else {
       req.body.is_unlisted = false;
     }
+
+    if (req.body.time_limit === "") {
+      req.body.time_limit = "00:00:00"
+    }
     queries.insertNewQuiz(db, req.body, req.session.user)
     .then((quizzes) => {
-      console.log(req.body);
-      res.redirect(`/users/${req.session.user}/quiz/${quizzes.id}/question`)
+      res.redirect(`/users/${req.session.user}/quiz/${quizzes.id}/question`);
     });
   });
 

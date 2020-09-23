@@ -15,7 +15,7 @@ CREATE TABLE quizzes (
   title VARCHAR(255) NOT NULL,
   category VARCHAR(255) NOT NULL,
   description TEXT DEFAULT 'No description',
-  time_limit TIME,
+  time_limit TIME NOT NULL,
   is_unlisted BOOLEAN DEFAULT FALSE
 );
 
