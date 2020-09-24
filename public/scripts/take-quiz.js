@@ -20,7 +20,6 @@ $(function() {
     if(unAnswered === true){
       answered++;
     }
-    console.log(answered)
     $(this).parent().children().children().prop("checked", false);
     $(this).children().prop("checked", true);
   });
