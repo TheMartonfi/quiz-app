@@ -85,9 +85,10 @@
   color: $secondary-color;
 }
 
-// #result-container .results {
-//   transform-origin: top;
-//   transform: scale(1.25);
-//   height: 65vh;
-//   margin-bottom: 12px;
-// }
+#result-container .results {
+  transform-origin: top;
+  transform: scale(1.25);
+  height: 65vh;
+  margin-left: 34px;
+  margin-bottom: 12px;
+}

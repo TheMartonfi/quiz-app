@@ -2,10 +2,9 @@ $(function() {
   let rating = 0;
 
   let answers = document.getElementsByClassName('answer-container');
-  console.log(answers.length)
 
   let answered = 0;
-  
+
   $("h4 > input:checkbox").on('click', function() {
     $(this).parent().parent().children().children().prop("checked", false);
     $(this).prop("checked", true);
@@ -53,22 +52,27 @@ $(function() {
     const timeLimitInSeconds = Date.parse(dateTimeLimit) / 1000;
     const timeRemaining = timeLimitInSeconds - currentTimeInSeconds;
     let secondsRemaining = timeRemaining % 60;
-    let minutesRemaining = Math.floor(timeRemaining / 60);
+    let minutesRemaining = Math.floor(timeRemaining / 60) % 60;
+    let hoursRemaining = Math.floor(timeRemaining / 3600);
 
-     if (minutesRemaining < 10) {
-      minutesRemaining = '0' + minutesRemaining;
-     }
+    if (secondsRemaining < 10) {
+      secondsRemaining = '0' + secondsRemaining;
+    }
 
-     if (secondsRemaining < 10) {
-       secondsRemaining = '0' + secondsRemaining;
-     }
+    if (minutesRemaining < 10) {
+    minutesRemaining = '0' + minutesRemaining;
+    }
+
+    if (hoursRemaining < 10) {
+      hoursRemaining = '0' + hoursRemaining;
+    }
 
     if (timeLimit === "00:00:00") {
       $timer.html(currentTime);
     } else {
-      $timer.html(`00:${minutesRemaining}:${secondsRemaining}`);
+      $timer.html(`${hoursRemaining}:${minutesRemaining}:${secondsRemaining}`);
     }
-    console.log(timeRemaining);
+
     if (timeRemaining <= 30 && Math.sign(timeRemaining) === 1) {
       $timer.attr("id", "red-timer");
       $timer = $('#red-timer');
