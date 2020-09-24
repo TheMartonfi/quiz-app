@@ -12,6 +12,7 @@
     <%- include('partials/_header') %>
     <div id='new-questions'>
       <form id="new-quiz-container" method="POST">
+        <div id="question-input-container"></div>
         <h1 name="quiz_id"><%= quiz.title %></h1>
         <label for="question">New Question*</label>
         <input id="question" type="text" name="question">
