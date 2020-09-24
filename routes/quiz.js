@@ -64,7 +64,7 @@ module.exports = (db) => {
       score = '100%'
     }
 
-    const user_id = req.session.user || null;
+    const user_id = req.session.user || 3;
     const options = {user_id, quiz_rating: req.body.quiz_rating, quiz_id: req.body.quiz_id, result: score, time_spent: req.body.time_spent};
     queries.insertNewResult(db, options)
     .then((result) => {
