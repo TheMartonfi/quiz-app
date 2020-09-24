@@ -131,4 +131,13 @@
     margin-left: -40%;
     height: fit-content;
   }
+  #result-container {
+    transform: scale(0.5);
+    transform-origin: top;
+    height: fit-content;
+    margin-left: -20%;
+  }
+  #result-container > .results {
+    height: fit-content;
+  }
 }
