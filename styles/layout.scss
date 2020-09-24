@@ -7,6 +7,7 @@ $secondary-font: 'Rajdhani', sans-serif;
 @import "results.scss";
 @import "delete-quiz.scss";
 @import "make-quiz.scss";
+@import "search.scss";
 
 %hover {
   cursor: pointer;
@@ -116,34 +117,6 @@ nav a {
   margin: 10px;
 }
 
-#search-form {
-  display: flex;
-  justify-content: flex-end;
-  position: fixed;
-  width: 45vw;
-  top: 8px;
-  right: 10px;
-  z-index: 2;
-}
-
-#search-form > input{
-  height: 100%;
-  width: 40%;
-  margin: 0;
-  margin-top: 7px;
-  transform: scaleY(1.5);
-}
-
-#search-container > div{
-  height: auto;
-  min-height: 80vh;
-  background-color: transparent;
-  border: none;
-  overflow-y: visible;
-  transform: scale(2);
-  transform-origin: top;
-}
-
 .quiz_rating {
   background-image: linear-gradient(90deg, blue 60%, black 60%);
   color: transparent;
@@ -156,36 +129,6 @@ nav a {
   margin-right: 5px;
   align-self: flex-end;
   order: 3;
-}
-
-.result-score {
-  margin-top: 40px;
-  margin-bottom: 40px;
-  transform: scale(1.5);
-}
-
-.result-score > div > span {
-  border-left: 2px solid black;
-  border-top: 20px solid transparent;
-  border-radius: 5px;
-  margin-left: 20px;
-}
-
-.result-score > p {
-  border: 2px solid black;
-  width: 200px;
-  height: 20px;
-  border-radius: 5px;
-  margin-bottom: 0;
-  background-image: linear-gradient(90deg, transparent 60%, blue 60%);
-}
-
-.result-score > div {
-  margin-left: 18px;
-}
-
-.score-letter {
-  width: 20px;
 }
 .row-container {
   display: flex;
@@ -225,16 +168,6 @@ nav a {
   }
   #drop-down {
     display: inline;
-  }
-  #search-form {
-    transform: scaleX(3);
-    margin-right: 30%;
-  }
-  #search-form > input {
-    margin-right: -9%
-  }
-  #search-form > button {
-    transform: scaleX(0.333);
   }
   %timer {
     right: 45%;
