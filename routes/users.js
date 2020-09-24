@@ -86,6 +86,18 @@ module.exports = (db, body) => {
     }
   });
 
+  // This route DELETEs a question from the database
+  router.post("/:id/quiz/:id2/delete/:id3", (req, res) => {
+    if(req.session.user === req.params.id){
+      queries.deleteQuestion(db, {id: req.params.id3})
+      .then((quizzes) => {
+        res.send('dead')
+      });
+    } else {
+      res.redirect('/');
+    }
+  });
+
   // Takes you to all results page
   router.get("/:id/results", (req, res) => {
     const userId = req.session.user;

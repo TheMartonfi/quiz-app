@@ -100,6 +100,8 @@ input {
 
 #finish-quiz {
   height: 150px;
+  width: 28%;
+  font-size: 6em;
 }
 
 .quiz-title {
@@ -123,4 +125,37 @@ input {
 .quiz-title > img {
   width: 100%;
   min-height: 300px;
+}
+@media only screen and (max-width: 1024px) {
+  .quiz-title {
+    height: 100px;
+  }
+  .quiz-title > h1 {
+    font-size: 1.5em;
+  }
+  img {
+    max-width: 100%;
+  }
+  #take-quiz > .answer-container > h4 {
+    width: 50vw;
+    height: 25vw;
+    margin: 0;
+    font-size: 0.8em;
+  }
+  #take-quiz > .answer-container > h4 >input {
+    transform: scale(1);
+  }
+  .answer-container{
+    margin-left: 0;
+  }
+  #timer {
+    right: 0px;
+  }
+  #stars {
+    font-size: 2.4em;
+  }
+  #finish-quiz {
+    height: 50px;
+    font-size: 1.5em;
+  }
 }

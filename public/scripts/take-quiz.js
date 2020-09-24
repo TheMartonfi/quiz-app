@@ -84,6 +84,7 @@ $(function() {
   });
 
   $('#finish-quiz').click(function () {
+    console.log(answers, answered)
     if(answered === answers.length){
       $('input[name=time_spent]').val(timer.getTimeValues().toString());
     } else {
