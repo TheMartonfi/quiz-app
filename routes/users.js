@@ -89,7 +89,7 @@ module.exports = (db, body) => {
   // This route DELETEs a question from the database
   router.post("/:id/quiz/:id2/delete/:id3", (req, res) => {
     if(req.session.user === req.params.id){
-      queries.deleteQuestion(db, {id: req.params.id3})
+      queries.deleteQuestion(db, {id: req.params.id2})
       .then((quizzes) => {
         res.send('dead')
       });
@@ -120,6 +120,40 @@ module.exports = (db, body) => {
       });
     });
   });
+
+    // Takes you to individual quiz result
+    router.get("/:id/quiz/:id2/result/:id3", (req, res) => {
+      const userId = req.session.user;
+      queries.getQuiz(db, {id: req.params.id2})
+      .then((quiz) => {
+        queries.getQuizResult(db, {user_id: req.params.id, quiz_id: req.params.id2, id: req.params.id3})
+        .then((result) => {
+          console.log(result);
+          queries.getQuizAverageTime(db, {quiz_id: req.params.id2})
+          .then((averageTime) => {
+            queries.getQuizResults(db, {quiz_id: req.params.id2})
+            .then((results) => {
+              const averageArr = []
+              results.forEach(element => {
+                if(element.result.length === 2){
+                  averageArr.push(Number(element.result[0]))
+                } else {
+                  averageArr.push(Number(element.result[0] + element.result[1]))
+                }
+              });
+              let average_score = 0;
+              averageArr.forEach((element) => {
+                average_score += element;
+              })
+              average_score /= averageArr.length;
+              average_score = Math.round(average_score * 10) / 10
+
+              res.render("result", {quiz, result, averageTime, userId, average_score});
+            })
+          });
+        });
+      });
+    });
 
   return router;
 };

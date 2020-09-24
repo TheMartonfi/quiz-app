@@ -10,9 +10,9 @@ function copy(){
 $(function() {
   $(".share-result").on('click', function(event){
     event.preventDefault();
-    $('body').append(`<input id="link-botw" value='localhost:8080/quiz/${$(this).attr('usId')}/result/${$(this).attr('quId')}/${$(this).attr('reId')}'>`);
+    $('body').append(`<input id="link-botw" value='localhost:8080/users/${$(this).attr('usId')}/quiz/${$(this).attr('quId')}/result/${$(this).attr('reId')}'>`);
     copy();
-    
+
   });
   $(".share-quiz").on('click', function(event){
     event.preventDefault();
