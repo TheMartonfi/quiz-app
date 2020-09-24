@@ -20,15 +20,20 @@
         <% for (const quiz of quizzes) { %>
           <a href="quiz/<%= quiz.id %>">
             <div class="quiz">
-              <div class="quiz-banner">
-                <% if(quiz.image !== null){ %>
+              <% if(quiz.image){ %>
+                <div class="quiz-banner">
                   <img src='<%= quiz.image %>'/>
-                <% } %>
-              </div>
+                </div>
+              <% } %>
               <h4><%= quiz.title %></h4>
               <% const style = `linear-gradient(90deg, blue ${Math.round(quiz.average_rating*200)/10}%, black ${Math.round(quiz.average_rating*200)/10}%)` %>
               <span style="background-image: <%=style%>" class="quiz_rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
               <p><%= quiz.description %></p>
+              <h6>Times played: <%= quiz.times_played %></h6>
+              <% if (quiz.time_limit === '00:00:00') { %>
+                <% quiz.time_limit = 'None'; %>
+              <% } %>
+              <h6>Time limit: <%= quiz.time_limit %></h6>
             </div>
           </a>
         <% } %>
