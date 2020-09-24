@@ -21,8 +21,8 @@
         <div class='row-container'>
           <a href="/users/<%= user_id %>/quiz/<%= quiz.id %>/question" class="btn btn-outline-primary"><i class="fas fa-edit"></i></a>
           <button quId="<%= quiz.id %>" type="button" class="btn btn-outline-primary share-quiz"><i class="fab fa-usb"></i></button>
-          <form>
-            <button type="submit" class="btn btn-outline-danger" id="/users/<%= user_id %>/quiz/<%= quiz.id %>/delete"><i class="fas fa-trash-alt"></i></button>
+          <form action="/quiz/<%= quiz.id %>/delete" method="POST">
+            <button type="submit" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></button>
           </form>
         </div>
       </div>
@@ -34,7 +34,6 @@
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-    <script src="/scripts/delete-quiz.js"></script>
     <script type="text/javascript" src="/scripts/results.js"></script>
     <script src="https://kit.fontawesome.com/8354918fc8.js" crossorigin="anonymous"></script>
   </body>

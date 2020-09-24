@@ -42,7 +42,7 @@
         <% for (const question of questions) { %>
           <div class="quiz-question">
             <form class='delete-question'>
-              <button type="submit" class="btn btn-outline-danger" id="/users/<%= userId %>/quiz/<%= quiz.id %>/delete/<%= question.id %>"><i class="fas fa-trash-alt"></i></button>
+              <button type="submit" class="btn btn-outline-danger" id="/delete/question/<%= question.id %>"><i class="fas fa-trash-alt"></i></button>
             </form>
             <h4><%= question.question %></h4>
             <p><%= question.answer_correct %></p>
