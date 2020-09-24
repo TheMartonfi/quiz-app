@@ -42,3 +42,13 @@
 .delete > * {
   margin: auto;
 }
+@media only screen and (max-width: 1024px) {
+  .delete {
+    transform: scale(0.5);
+    transform-origin: top;
+    margin: -40px;
+  }
+  #delete-container {
+    margin-left: 10%;
+  }
+}
