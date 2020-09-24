@@ -116,16 +116,6 @@ nav a {
   margin: 10px;
 }
 
-#question-container {
-  width: 40%;
-  border: 2px solid black;
-  height: 70vh;
-  margin-top: 2%;
-  overflow-y: scroll;
-  right: 0;
-  margin-right: 2%;
-}
-
 #search-form {
   display: flex;
   justify-content: flex-end;
@@ -143,6 +133,7 @@ nav a {
   margin-top: 7px;
   transform: scaleY(1.5);
 }
+
 #search-container > div{
   height: auto;
   min-height: 80vh;

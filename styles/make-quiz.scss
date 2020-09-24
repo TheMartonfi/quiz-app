@@ -1,7 +1,9 @@
 #new-quiz-container {
-  @extend %flex-center;
+  width: 750px;
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 70px;
   font-family: $secondary-font;
-  width: 30%;
 }
 
 #new-quiz-container > * {
@@ -9,6 +11,7 @@
 }
 
 #new-quiz-container h1 {
+  text-align: center;
   font-family: $primary-font;
 }
 
@@ -16,7 +19,7 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-top: 80px;
+  margin-top: 65px;
 }
 
 #unlisted {
@@ -29,17 +32,15 @@
   font-size: 6em;
 }
 
-.div-buttons {
-  display: flex;
-  flex-flow: wrap column;
-}
+#question-container {
+  width: 48%;
+  height: 86vh;
+  margin-top: 34px;
+  margin-left: 15px;
+  border: 2px solid black;
+  border-radius: 10px;
+  overflow-y: scroll;
 
-.div-buttons > button {
-  font-weight: bold;
-}
-
-.div-buttons > * {
-  margin-bottom: 10px;
 }
 
 #question-container > h1 {
@@ -51,15 +52,51 @@
 .quiz-question {
   font-family: $secondary-font;
   padding: 10px;
+  border-radius: 5px;
 }
 
-// #question-input-container {
+#question-input-container {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
 
-// }
+#question-input-container > * {
+  margin-top: 25px;
+  margin-bottom: 5px;
+}
 
-// #media-input-container {
+#question-input-container > label {
+  text-align: center;
+}
 
-// }
+#question-input-container > button {
+  width: 120px;
+  align-self: center;
+}
+
+#media-input-container {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  margin-top: 92px;
+  margin-left: 175px;
+}
+
+#media-input-container > * {
+  margin-top: 25px;
+  margin-bottom: 5px;
+  margin-left: 18px;
+}
+
+#media-input-container > label {
+  text-align: center;
+}
+
+#media-input-container > a {
+  width: 80px;
+  align-self: center;
+}
 
 
 
