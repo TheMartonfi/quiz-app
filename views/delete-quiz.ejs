@@ -11,8 +11,8 @@
   </head>
   <body>
     <%- include('partials/_header') %>
-    <h1 class="username"><%= quizzes[0].username %>'s quizzes</h1>
     <% if(quizzes) { %>
+    <h1 class="username"><%= quizzes[0].username %>'s quizzes</h1>
     <div id="delete-container">
     <% for (const quiz of quizzes) { %>
       <div class="delete">
