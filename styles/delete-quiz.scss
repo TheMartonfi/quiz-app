@@ -9,7 +9,7 @@
 .delete {
   @extend %flex-center;
   width: 353px;
-  height: 200px;
+  height: fit-content;
   margin: 15px;
   margin-top: 30px;
   padding: 10px;

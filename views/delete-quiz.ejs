@@ -18,6 +18,14 @@
       <div class="delete">
         <h1><%= quiz.title %></h1>
         <h2><%= quiz.category %></h2>
+        <% const style = `linear-gradient(90deg, blue ${Math.round(quiz.average_rating*200)/10}%, black ${Math.round(quiz.average_rating*200)/10}%)` %>
+        <span style="background-image: <%=style%>" class="quiz_rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+        <p><%= quiz.description %></p>
+        <h6>Times played: <%= quiz.times_played %></h6>
+        <% if (quiz.time_limit === '00:00:00') { %>
+          <% quiz.time_limit = 'None'; %>
+        <% } %>
+        <h6>Time limit: <%= quiz.time_limit %></h6>
         <div class='row-container'>
           <a href="/users/<%=userId %>/quiz/<%= quiz.id %>/question" class="btn btn-outline-primary"><i class="fas fa-edit"></i></a>
           <button quId="<%= quiz.id %>" type="button" class="btn btn-outline-primary share-quiz"><i class="fab fa-usb"></i></button>
