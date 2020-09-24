@@ -21,27 +21,21 @@
         <h4>Average Score: <%= average_score %>%</h4>
         <h4>Time Spent: <%= result.time_spent %></h4>
         <% if (averageTime.average_time.seconds === undefined) { %>
-          <% averageTime.average_time.seconds = '0' %>
+          <% averageTime.average_time.seconds = '00' %>
+        <% } else if (averageTime.average_time.seconds < 10) { %>
+          <% averageTime.average_time.seconds = '0' + averageTime.average_time.seconds %>
         <% } %>
-        <% if (averageTime.average_time.minutes) { %>
-          <% console.log(averageTime.average_time.seconds) %>
-          <% if (averageTime.average_time.minutes < 10 && averageTime.average_time.seconds < 10) { %>
-            <h4>Average Time Spent: 00:0<%= averageTime.average_time.minutes %>:0<%= averageTime.average_time.seconds %></h4>
-          <% } else if (averageTime.average_time.minutes < 10) { %>
-            <h4>Average Time Spent: 00:0<%= averageTime.average_time.minutes %>:<%= averageTime.average_time.seconds %></h4>
-          <% } else if (averageTime.average_time.seconds < 10) { %>
-            <h4>Average Time Spent: 00:<%= averageTime.average_time.minutes %>:0<%= averageTime.average_time.seconds %></h4>
-          <% } else { %>
-            <h4>Average Time Spent: 00:<%= averageTime.average_time.minutes %>:<%= averageTime.average_time.seconds %>
-          <% } %>
-        <% } else { %>
-          <% if (averageTime.average_time.seconds < 10) { %>
-            <h4>Average Time Spent: 00:00:0<%= averageTime.average_time.seconds %></h4>
-          <% } else { %>
-            <h4>Average Time Spent: 00:00:<%= averageTime.average_time.seconds %></h4>
-          <% } %>
+        <% if (!averageTime.average_time.minutes) { %>
+          <% averageTime.average_time['minutes'] = '00' %>
+        <% } else if (averageTime.average_time.minutes < 10) { %>
+          <% averageTime.average_time.minutes = '0' + averageTime.average_time.minutes %>
         <% } %>
-
+        <% if (!averageTime.average_time.hours) { %>
+          <% averageTime.average_time['hours'] = '00' %>
+        <% } else if (averageTime.average_time.hours < 10) { %>
+          <% averageTime.average_time.hours = '0' + averageTime.average_time.hours %>
+        <% } %>
+        <h4>Average Time Spent: <%= averageTime.average_time.hours %>:<%= averageTime.average_time.minutes %>:<%= averageTime.average_time.seconds %></h4>
         <h4 class='result-score'>
           <% const style = `linear-gradient(90deg, blue ${result.result}, transparent ${result.result})` %>
           <p style='background-image: <%=style%>'></p>
