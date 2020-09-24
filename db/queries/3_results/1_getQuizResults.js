@@ -31,6 +31,9 @@ const getQuizResults = function(db, options){
       AND category = $${queryOptions.length}`;
     }
   }
+
+  queryString += (`ORDER BY results.id DESC`);
+
   return db.query(queryString, queryOptions)
   .then(res => res.rows);
 }
