@@ -21,6 +21,11 @@
           <% if (quiz.category === 'General') { %>
             <a href="quiz/<%= quiz.id %>">
               <div class="quiz">
+                <% if(quiz.image){ %>
+                  <div class="quiz-banner">
+                    <img src='<%= quiz.image %>'/>
+                  </div>
+                <% } %>
                 <h4><%= quiz.title %></h4>
                 <% const style = `linear-gradient(90deg, blue ${Math.round(quiz.average_rating*200)/10}%, black ${Math.round(quiz.average_rating*200)/10}%)` %>
                 <span style="background-image: <%=style%>" class="quiz_rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
@@ -41,6 +46,11 @@
           <% if (quiz.category === 'History') { %>
             <a href="quiz/<%= quiz.id %>">
               <div class="quiz">
+                <% if(quiz.image){ %>
+                  <div class="quiz-banner">
+                    <img src='<%= quiz.image %>'/>
+                  </div>
+                <% } %>
                 <h4><%= quiz.title %></h4>
                 <% const style = `linear-gradient(90deg, blue ${Math.round(quiz.average_rating*200)/10}%, black ${Math.round(quiz.average_rating*200)/10}%)` %>
                 <span style="background-image: <%=style%>" class="quiz_rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
@@ -61,6 +71,11 @@
           <% if (quiz.category === 'Arts') { %>
             <a href="quiz/<%= quiz.id %>">
               <div class="quiz">
+                <% if(quiz.image){ %>
+                  <div class="quiz-banner">
+                    <img src='<%= quiz.image %>'/>
+                  </div>
+                <% } %>
                 <h4><%= quiz.title %></h4>
                 <% const style = `linear-gradient(90deg, blue ${Math.round(quiz.average_rating*200)/10}%, black ${Math.round(quiz.average_rating*200)/10}%)` %>
                 <span style="background-image: <%=style%>" class="quiz_rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
@@ -80,13 +95,12 @@
         <% for (const quiz of quizzes) { %>
           <% if (quiz.category === 'Gaming') { %>
             <a href="quiz/<%= quiz.id %>">
-
               <div class="quiz">
-                <div class="quiz-banner">
-                  <% if(quiz.image !== null){ %>
+                <% if(quiz.image){ %>
+                  <div class="quiz-banner">
                     <img src='<%= quiz.image %>'/>
+                  </div>
                   <% } %>
-                </div>
                 <h4><%= quiz.title %></h4>
                 <% const style = `linear-gradient(90deg, blue ${Math.round(quiz.average_rating*200)/10}%, black ${Math.round(quiz.average_rating*200)/10}%)` %>
                 <span style="background-image: <%=style%>" class="quiz_rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
@@ -107,6 +121,11 @@
           <% if (quiz.category === 'Programming') { %>
             <a href="quiz/<%= quiz.id %>">
               <div class="quiz">
+                <% if(quiz.image){ %>
+                  <div class="quiz-banner">
+                    <img src='<%= quiz.image %>'/>
+                  </div>
+                <% } %>
                 <h4><%= quiz.title %></h4>
                 <% const style = `linear-gradient(90deg, blue ${Math.round(quiz.average_rating*200)/10}%, black ${Math.round(quiz.average_rating*200)/10}%)` %>
                 <span style="background-image: <%=style%>" class="quiz_rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
@@ -127,6 +146,11 @@
           <% if (quiz.category === 'Math') { %>
             <a href="quiz/<%= quiz.id %>">
               <div class="quiz">
+                <% if(quiz.image){ %>
+                  <div class="quiz-banner">
+                    <img src='<%= quiz.image %>'/>
+                  </div>
+                <% } %>
                 <h4><%= quiz.title %></h4>
                 <% const style = `linear-gradient(90deg, blue ${Math.round(quiz.average_rating*200)/10}%, black ${Math.round(quiz.average_rating*200)/10}%)` %>
                 <span style="background-image: <%=style%>" class="quiz_rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
