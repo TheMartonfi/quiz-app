@@ -9,10 +9,15 @@ module.exports = (db, body) => {
   router.get("/quizzes", (req, res) => {
     const user_id = req.session.user;
 
-    queries.getAllUsersQuizzes(db, {id: user_id})
-    .then((quizzes) => {
-      res.render("delete-quiz", {quizzes, user_id});
-    });
+    //user auth
+    if (user_id) {
+      queries.getAllUsersQuizzes(db, {id: user_id})
+      .then((quizzes) => {
+        res.render("delete-quiz", {quizzes, user_id});
+      });
+    } else {
+      res.redirect("/");
+    }
   });
 
   // Takes you to all results page
