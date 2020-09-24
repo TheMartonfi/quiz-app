@@ -142,22 +142,28 @@ module.exports = (db) => {
 
     const user_id = req.session.user || null;
     const options = {user_id, quiz_rating: req.body.quiz_rating, quiz_id: req.body.quiz_id, result: score, time_spent: req.body.time_spent};
+
     queries.insertNewResult(db, options)
     .then((result) => {
-      res.redirect(`/quiz/${user_id}/result/${req.body.quiz_id}/${result.id}`);
+      res.redirect(`/quiz/result/${result.id}`);
     })
   });
 
   // This route DELETEs a question from the database
   router.post("/delete/question/:id", (req, res) => {
-    if(req.session.user === req.params.id){
-      queries.deleteQuestion(db, {id: req.params.id})
-      .then((quizzes) => {
-        res.send('dead')
-      });
-    } else {
-      res.redirect('/');
-    }
+    const user_id = req.session.user;
+
+    queries.getQuizWithQuestion(db, {question_id: req.params.id})
+    .then((quiz) => {
+      if(user_id == quiz.owner_id){
+        queries.deleteQuestion(db, {id: req.params.id})
+        .then((quizzes) => {
+          res.send('dead')
+        });
+      } else {
+        res.redirect('/');
+      }
+    });
   });
 
   return router;
