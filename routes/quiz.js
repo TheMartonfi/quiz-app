@@ -38,5 +38,39 @@ module.exports = (db) => {
     })
   });
 
+    // Takes you to individual quiz result
+    router.get("/result/:id", (req, res) => {
+      const userId = req.session.user;
+
+      queries.getQuizResult(db, {user_id: userId, id: req.params.id})
+      .then((result) => {
+        queries.getQuiz(db, {id: result.quiz_id})
+        .then((quiz) => {
+          queries.getQuizAverageTime(db, {quiz_id: quiz.id})
+          .then((averageTime) => {
+            queries.getQuizResults(db, {quiz_id: quiz.id})
+            .then((results) => {
+              const averageArr = []
+              results.forEach(element => {
+                if(element.result.length === 2){
+                  averageArr.push(Number(element.result[0]))
+                } else {
+                  averageArr.push(Number(element.result[0] + element.result[1]))
+                }
+              });
+              let average_score = 0;
+              averageArr.forEach((element) => {
+                average_score += element;
+              })
+              average_score /= averageArr.length;
+              average_score = Math.round(average_score * 10) / 10
+
+              res.render("result", {quiz, result, averageTime, userId, average_score});
+            })
+          });
+        });
+      });
+    });
+
   return router;
 };
