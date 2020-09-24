@@ -7,14 +7,24 @@ $(function() {
     $.ajax(window.location.href, { method: 'POST', data: $(this).serialize()})
     .then((data) =>  {
       let $newQuestion = $("<div class = 'quiz-question'></div>");
+      let $delete = $(`<form class='delete-question'>
+      <button type="submit" class="btn btn-outline-danger" id="/users/<%= userId %>/quiz/<%= quiz.id %>/delete/<%= question.id %>"><i class="fas fa-trash-alt"></i></button>
+    </form>`)
       let $question = $(`<h4>${data.question}</h4>`);
-      let $answer = $(`<p>${data.answer_correct}</p>`);
+      let $answer1 = $(`<p>${data.answer_1}</p>`);
+      let $answer2 = $(`<p>${data.answer_2}</p>`);
+      let $answer3 = $(`<p>${data.answer_3}</p>`);
+      let $answer_correct = $(`<p>${data.answer_correct}</p>`);
 
       $newQuestion.append($question);
-      $newQuestion.append($answer);
+      $newQuestion.append($delete);
+      $newQuestion.append($answer_correct);
+      $newQuestion.append($answer1);
+      $newQuestion.append($answer2);
+      $newQuestion.append($answer3);
 
       $("#question-container").append($newQuestion);
-      $("#question-container").scrollTop(10000000000);
+      $("#question-container").scrollTop(Infinity);
       $(this).children().val('')
       $("#qId").val('<%=quiz_id%>')
       $('#share-card').remove();
