@@ -9,7 +9,7 @@
 .delete {
   @extend %flex-center;
   width: 353px;
-  height: fit-content;
+  height: 318px;
   margin: 15px;
   margin-top: 30px;
   padding: 10px;
@@ -21,10 +21,6 @@
 
 .delete h1 {
   font-family: $primary-font;
-}
-
-.delete h2 {
-  font-family: $secondary-font;
 }
 
 .delete button {
@@ -40,8 +36,14 @@
 }
 
 .delete > * {
-  margin: auto;
+  margin: 4px;
+  font-family: $secondary-font;
 }
+
+.delete .quiz_rating {
+  align-self: center;
+}
+
 @media only screen and (max-width: 1024px) {
   .delete {
     transform: scale(0.5);
