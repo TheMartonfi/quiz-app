@@ -1,0 +1,26 @@
+— Which project you chose and why
+We chose the quiz app
+Carl: Wanted to do password keeper but choose to work on a project I was less comfortable with
+Jayden: Simple idea you can do a lot with
+
+— What each of you did, individually
+Carl: Front end design, timer
+Jayden: Database queries, media support, rating stars, search
+(Both of use split pages of the application on worked on them individually)
+
+— Show us what you built (demo)
+Present the 2 quizzes we made
+
+— What challenges you had and how you overcame them
+Carl: Getting more familliar with using bootstrap
+Jayden: Getting the app to look good on mobile
+
+— What you learned and/or what you’ll do differently in final projects
+Carl: 
+Using AJAX to make requests to get info from the DB instead of relying on EJS
+(Allows for more dynamic experiences on a single page)
+TLDR: Use client side rendering instead of server side rendering
+
+Jayden:
+Learned a lot about using express routes
+(Got more familiar with using routes and how useful they can be)
