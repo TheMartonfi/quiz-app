@@ -51,7 +51,7 @@ app.post("/search", (req, res) => {
   queries.searchQuizzes(db, {search: req.body.search})
   .then((quizzes) => {
     console.log(quizzes)
-    res.render("search", {quizzes, user_id});
+    res.render("search", {quizzes, user_id, query: req.body.search});
   });
 });
 
