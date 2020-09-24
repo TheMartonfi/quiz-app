@@ -214,3 +214,29 @@ nav a {
 .quiz-banner > img {
   width: 100%;
 }
+
+@media only screen and (max-width: 1024px) {
+  .quiz-container {
+    transform: scale(0.5);
+    margin-right: -100px;
+    margin-left: -100px;
+    transform-origin: top;
+    margin-top: 140px;
+  }
+  .nav > .nav-link {
+    display: none;
+  }
+  #search-form {
+    transform: scaleX(3);
+    margin-right: 30%;
+  }
+  #search-form > input {
+    margin-right: -9%
+  }
+  #search-form > button {
+    transform: scaleX(0.333);
+  }
+  #shrunk {
+    display: none;
+  }
+}
