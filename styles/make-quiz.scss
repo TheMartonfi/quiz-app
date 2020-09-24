@@ -1,16 +1,26 @@
 #new-quiz-container {
-  width: 750px;
-  display: flex;
-  justify-content: flex-start;
-  margin-left: 70px;
+  @extend %flex-center;
   font-family: $secondary-font;
+  width: 30%;
 }
 
 #new-quiz-container > * {
   margin: 15px;
 }
 
-#new-quiz-container h1 {
+#new-quiz-questions-container {
+  width: 750px;
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 72px;
+  font-family: $secondary-font;
+}
+
+#new-quiz-questions-container > * {
+  margin: 15px;
+}
+
+#new-quiz-questions-container h1 {
   text-align: center;
   font-family: $primary-font;
 }
@@ -97,6 +107,3 @@
   width: 80px;
   align-self: center;
 }
-
-
-
