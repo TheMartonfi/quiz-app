@@ -16,8 +16,8 @@ $(function() {
       let $answer3 = $(`<p>${data.answer_3}</p>`);
       let $answer_correct = $(`<p>${data.answer_correct}</p>`);
 
-      $newQuestion.append($question);
       $newQuestion.append($delete);
+      $newQuestion.append($question);
       $newQuestion.append($answer_correct);
       $newQuestion.append($answer1);
       $newQuestion.append($answer2);
@@ -25,8 +25,6 @@ $(function() {
 
       $("#question-container").append($newQuestion);
       $("#question-container").scrollTop(Infinity);
-      $(this).children().val('')
-      $("#qId").val('<%=quiz_id%>')
       $('#share-card').remove();
     })
   })

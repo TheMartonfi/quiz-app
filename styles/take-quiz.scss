@@ -121,6 +121,9 @@ input {
   z-index: 0;
   font-size: 5em;
 }
+img {
+  max-width: 100%;
+}
 
 .quiz-title > img {
   width: 100%;
@@ -132,9 +135,6 @@ input {
   }
   .quiz-title > h1 {
     font-size: 1.5em;
-  }
-  img {
-    max-width: 100%;
   }
   #take-quiz > .answer-container > h4 {
     width: 50vw;

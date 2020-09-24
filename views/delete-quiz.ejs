@@ -27,7 +27,7 @@
         <% } %>
         <h5>Time limit: <%= quiz.time_limit %></h5>
         <div class='row-container'>
-          <a href="/users/<%= user_id %>/quiz/<%= quiz.id %>/question" class="btn btn-outline-primary"><i class="fas fa-edit"></i></a>
+          <a href="/quiz/new/<%= quiz.id %>/question" class="btn btn-outline-primary"><i class="fas fa-edit"></i></a>
           <button quId="<%= quiz.id %>" type="button" class="btn btn-outline-primary share-quiz"><i class="fab fa-usb"></i></button>
           <form action="/quiz/<%= quiz.id %>/delete" method="POST">
             <button type="submit" class="btn btn-outline-danger"><i class="fas fa-trash-alt"></i></button>
