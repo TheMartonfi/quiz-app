@@ -90,3 +90,12 @@
   border-bottom: none;
   margin-bottom: 0;
 }
+@media only screen and (max-width: 1024px) {
+  .results {
+    transform: scale(0.3);
+    transform-origin: top;
+    margin-bottom: -130%;
+    margin-right: -30%;
+    margin-left: -40%;
+  }
+}
