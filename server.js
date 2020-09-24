@@ -38,20 +38,20 @@ app.use("/quiz", quizRoutes(db));
 
 // Home page
 app.get("/", (req, res) => {
-  const userId = req.session.user;
+  const user_id = req.session.user;
   queries.getAllPublicQuizzes(db)
   .then((quizzes) => {
-    res.render("home", {quizzes, userId});
+    res.render("home", {quizzes, user_id});
   });
 });
 
 // Search Page
 app.post("/search", (req, res) => {
-  const userId = req.session.user;
+  const user_id = req.session.user;
   queries.searchQuizzes(db, {search: req.body.search})
   .then((quizzes) => {
     console.log(quizzes)
-    res.render("search", {quizzes, userId});
+    res.render("search", {quizzes, user_id});
   });
 });
 

@@ -6,12 +6,12 @@ module.exports = (db) => {
 
   // Takes you to specific quiz
   router.get("/:id", (req, res) => {
-    const userId = req.session.user;
+    const user_id = req.session.user;
     queries.getQuiz(db, {id: req.params.id})
     .then((quiz) => {
       queries.getQuestions(db, {id: req.params.id})
       .then((questions) => {
-        res.render("take-quiz", {quiz, questions, userId});
+        res.render("take-quiz", {quiz, questions, user_id});
       });
     });
   });
@@ -40,9 +40,9 @@ module.exports = (db) => {
 
     // Takes you to individual quiz result
     router.get("/result/:id", (req, res) => {
-      const userId = req.session.user;
+      const user_id = req.session.user;
 
-      queries.getQuizResult(db, {user_id: userId, id: req.params.id})
+      queries.getQuizResult(db, {user_id: user_id, id: req.params.id})
       .then((result) => {
         queries.getQuiz(db, {id: result.quiz_id})
         .then((quiz) => {
@@ -65,7 +65,7 @@ module.exports = (db) => {
               average_score /= averageArr.length;
               average_score = Math.round(average_score * 10) / 10
 
-              res.render("result", {quiz, result, averageTime, userId, average_score});
+              res.render("result", {quiz, result, averageTime, user_id, average_score});
             })
           });
         });

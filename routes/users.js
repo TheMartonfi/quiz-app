@@ -34,18 +34,18 @@ module.exports = (db, body) => {
 
   // This route bring you to the new quiz page
   router.get("/:id/quiz/new", (req, res) => {
-    const userId = req.session.user;
-    res.render("make-quiz", {userId});
+    const user_id = req.session.user;
+    res.render("make-quiz", {user_id});
   });
 
   // This route brings you to the new question page
   router.get("/:id/quiz/:id2/question", (req, res) => {
-    const userId = req.session.user;
+    const user_id = req.session.user;
     queries.getQuiz(db, {id: req.params.id2})
     .then((quiz) => {
       queries.getQuestions(db, {id: req.params.id2})
       .then((questions) => {
-        res.render("make-quiz-questions", {questions, quiz, quiz_id: req.params.id2, userId});
+        res.render("make-quiz-questions", {questions, quiz, quiz_id: req.params.id2, user_id});
       })
     })
   });
@@ -60,16 +60,16 @@ module.exports = (db, body) => {
 
   // This route brings you to the all quizzes page and allows you to delete quizzes
   router.get("/:id/quiz", (req, res) => {
-    const userId = req.session.user;
-    if(userId === req.params.id){
+    const user_id = req.session.user;
+    if(user_id === req.params.id){
       queries.getAllUsersQuizzes(db, {id: req.params.id})
       .then((quizzes) => {
-        res.render("delete-quiz", {quizzes, userId});
+        res.render("delete-quiz", {quizzes, user_id});
       });
     } else {
       queries.getAllUsersQuizzes(db, {id: req.params.id})
       .then((quizzes) => {
-        res.render("delete-quiz", {quizzes, userId: req.params.id});
+        res.render("delete-quiz", {quizzes, user_id});
       });
     }
   });
@@ -100,7 +100,7 @@ module.exports = (db, body) => {
 
   // Takes you to all results page
   router.get("/:id/results", (req, res) => {
-    const userId = req.session.user;
+    const user_id = req.session.user;
     queries.getQuizResults(db, {user_id: req.params.id})
     .then((results) => {
       queries.getQuizAverageTimes(db)
@@ -115,7 +115,7 @@ module.exports = (db, body) => {
               }
             })
           });
-          res.render("results", {results, averageTimes, userId});
+          res.render("results", {results, averageTimes, user_id});
         });
       });
     });
