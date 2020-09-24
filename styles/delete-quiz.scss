@@ -9,7 +9,7 @@
 .delete {
   @extend %flex-center;
   width: 353px;
-  height: 200px;
+  height: fit-content;
   margin: 15px;
   margin-top: 30px;
   padding: 10px;
@@ -41,4 +41,14 @@
 
 .delete > * {
   margin: auto;
+}
+@media only screen and (max-width: 1024px) {
+  .delete {
+    transform: scale(0.5);
+    transform-origin: top;
+    margin: -40px;
+  }
+  #delete-container {
+    margin-left: 10%;
+  }
 }

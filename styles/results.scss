@@ -93,7 +93,35 @@
   margin-left: 34px;
   margin-bottom: 12px;
 }
+.result-score {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  transform: scale(1.5);
+}
 
+.result-score > div > span {
+  border-left: 2px solid black;
+  border-top: 20px solid transparent;
+  border-radius: 5px;
+  margin-left: 20px;
+}
+
+.result-score > p {
+  border: 2px solid black;
+  width: 200px;
+  height: 20px;
+  border-radius: 5px;
+  margin-bottom: 0;
+  background-image: linear-gradient(90deg, transparent 60%, blue 60%);
+}
+
+.result-score > div {
+  margin-left: 18px;
+}
+
+.score-letter {
+  width: 20px;
+}
 @media only screen and (max-width: 1024px) {
   .results {
     transform: scale(0.3);
@@ -101,5 +129,15 @@
     margin-bottom: -130%;
     margin-right: -30%;
     margin-left: -40%;
+    height: fit-content;
+  }
+  #result-container {
+    transform: scale(0.5);
+    transform-origin: top;
+    height: fit-content;
+    margin-left: -20%;
+  }
+  #result-container > .results {
+    height: fit-content;
   }
 }

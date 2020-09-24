@@ -113,3 +113,31 @@
   background-color: transparent;
   border: none;
 }
+@media only screen and (max-width: 1024px) {
+  #new-quiz-container {
+    transform: scale(0.5);
+    transform-origin: top;
+  }
+  #unlisted {
+    margin-left: 0;
+  }
+  #new-quiz-container > button {
+    margin-top: 50px;
+  }
+  #new-quiz-questions-container {
+    transform: scale(0.4);
+    transform-origin: top;
+    margin-top: 70px;
+    margin-left: -180px;
+  }
+  #new-questions {
+    flex-direction: column;
+  }
+  #question-container {
+    margin-top: -450px;
+    transform: scale(0.5);
+    transform-origin: top;
+    width: 150%;
+    margin-left: -100px;
+  }
+}
