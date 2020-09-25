@@ -23,9 +23,11 @@ Quiz App is a full stack web application that allows you to make quizzes and pla
 
 ## Screenshots
 
-!['']()
-!['']()
-!['']()
-!['']()
-!['']()
-!['']()
+!['Home'](https://github.com/TheMartonfi/quiz-app-midterm/blob/master/docs/home.png?raw=true)
+!['Make new quiz'](https://github.com/TheMartonfi/quiz-app-midterm/blob/master/docs/make-new-quiz.png?raw=true)
+!['Make new quiz questions'](https://github.com/TheMartonfi/quiz-app-midterm/blob/master/docs/make-quiz-questions.png?raw=true)
+!['My quizzes'](https://github.com/TheMartonfi/quiz-app-midterm/blob/master/docs/my-quizzes.png?raw=true)
+!['Result'](https://github.com/TheMartonfi/quiz-app-midterm/blob/master/docs/result.png?raw=true)
+!['Results'](https://github.com/TheMartonfi/quiz-app-midterm/blob/master/docs/results.png?raw=true)
+!['Take quiz top'](https://github.com/TheMartonfi/quiz-app-midterm/blob/master/docs/take-quiz-top.png?raw=true)
+!['Take quiz bottom'](https://github.com/TheMartonfi/quiz-app-midterm/blob/master/docs/take-quiz-bottom.png?raw=true)
