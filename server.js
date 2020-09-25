@@ -50,7 +50,6 @@ app.post("/search", (req, res) => {
   const user_id = req.session.user;
   queries.searchQuizzes(db, {search: req.body.search})
   .then((quizzes) => {
-    console.log(quizzes)
     res.render("search", {quizzes, user_id, query: req.body.search});
   });
 });

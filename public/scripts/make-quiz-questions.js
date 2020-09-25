@@ -16,16 +16,26 @@ $(function() {
       let $answer3 = $(`<p>${data.answer_3}</p>`);
       let $answer_correct = $(`<p>${data.answer_correct}</p>`);
 
-      $newQuestion.append($delete);
       $newQuestion.append($question);
       $newQuestion.append($answer_correct);
       $newQuestion.append($answer1);
       $newQuestion.append($answer2);
       $newQuestion.append($answer3);
+      $newQuestion.append($delete);
 
       $("#question-container").append($newQuestion);
       $("#question-container").scrollTop(Infinity);
       $('#share-card').remove();
     })
-  })
+  });
+
+  $("#question-input-container").children("button").click(function () {
+    const qId = $("#qId").val();
+
+    setTimeout(() => {
+      $(this).parent().children('input').val('');
+      $("#media-input-container").children('input').val('');
+      $("#qId").val(qId);
+    }, 0);
+  });
 });

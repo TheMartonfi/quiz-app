@@ -155,7 +155,6 @@ module.exports = (db) => {
 
     queries.getQuizWithQuestion(db, {question_id: req.params.id})
     .then((quiz) => {
-      console.log(quiz)
       if(user_id == quiz.owner_id){
         queries.deleteQuestion(db, {id: req.params.id})
         .then((quizzes) => {

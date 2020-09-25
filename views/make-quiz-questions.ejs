@@ -33,7 +33,7 @@
           <input id="audio" type="text" name="audio">
           <label for="video">Youtube Video Id <i class="fab fa-youtube"></i></label>
           <input id="video" type="text" name="video">
-          <input id="qId" type="number" name="quiz_id" value="<%=quiz_id%>" style="display: none;">
+          <input id="qId" type="number" name="quiz_id" value="<%= quiz_id %>" style="display: none;">
           <a class="btn btn-outline-primary" href="/">Submit</a>
         </div>
       </form>
@@ -41,14 +41,14 @@
         <h1>Questions</h1>
         <% for (const question of questions) { %>
           <div class="quiz-question">
-            <form class='delete-question'>
-              <button type="submit" class="btn btn-outline-danger" id="/quiz/delete/question/<%= question.id %>"><i class="fas fa-trash-alt"></i></button>
-            </form>
             <h4><%= question.question %></h4>
             <p><%= question.answer_correct %></p>
             <p><%= question.answer_1 %></p>
             <p><%= question.answer_2 %></p>
             <p><%= question.answer_3 %></p>
+            <form class='delete-question'>
+              <button type="submit" class="btn btn-outline-danger" id="/quiz/delete/question/<%= question.id %>"><i class="fas fa-trash-alt"></i></button>
+            </form>
           </div>
         <% } %>
       </div>
