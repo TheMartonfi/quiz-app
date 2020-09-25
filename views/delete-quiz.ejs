@@ -20,7 +20,6 @@
         <h2><%= quiz.category %></h2>
         <% const style = `linear-gradient(90deg, blue ${Math.round(quiz.average_rating*200)/10}%, black ${Math.round(quiz.average_rating*200)/10}%)` %>
         <span style="background-image: <%=style%>" class="quiz_rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
-        <h5><%= quiz.description %></h5>
         <h5>Times played: <%= quiz.times_played %></h5>
         <% if (quiz.time_limit === '00:00:00') { %>
           <% quiz.time_limit = 'None'; %>
