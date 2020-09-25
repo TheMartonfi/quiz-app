@@ -139,7 +139,7 @@ module.exports = (db) => {
     } else {
       score = '100%'
     }
-
+    console.log(req.body['0'])
     const user_id = req.session.user || 3;
     const options = {user_id, quiz_rating: req.body.quiz_rating, quiz_id: req.body.quiz_id, result: score, time_spent: req.body.time_spent};
 

@@ -5,23 +5,35 @@ $(function() {
 
   let answered = 0;
 
+  let out_of_time = false;
+
   $("h4 > input:checkbox").on('click', function() {
     $(this).parent().parent().children().children().prop("checked", false);
     $(this).prop("checked", true);
   });
 
   $("h4").on('click', function() {
-    let unAnswered = true
-    for(let i = 0; i < 4; i++){
-      if($(this).parent().children().children()[i].checked === true){
-        unAnswered = false
+    if(!out_of_time){
+      let unAnswered = true
+      for(let i = 0; i < 4; i++){
+        if($(this).parent().children().children()[i].checked === true){
+          unAnswered = false
+        }
+      }
+      if(unAnswered === true){
+        answered++;
+      }
+      $(this).parent().children().children().prop("checked", false);
+      $(this).children().prop("checked", true);
+    } else {
+      for(let i = 0; i < 4; i++){
+        const name = $(this).attr('class');
+        console.log(name)
+        if(name != 'd'){
+          $(this).children().prop("checked", true);
+        }
       }
     }
-    if(unAnswered === true){
-      answered++;
-    }
-    $(this).parent().children().children().prop("checked", false);
-    $(this).children().prop("checked", true);
   });
 
   $(".star").on('click', function() {
@@ -78,15 +90,19 @@ $(function() {
     }
 
     if (currentTime === timeLimit) {
+      out_of_time = true;
       $('#finish-quiz').trigger('click');
     }
 
   });
 
   $('#finish-quiz').click(function () {
-    console.log(answers, answered)
     if(answered === answers.length){
       $('input[name=time_spent]').val(timer.getTimeValues().toString());
+    } else if(out_of_time === true) {
+      $('h4').trigger('click');
+      answered = answers.length;
+      $('#finish-quiz').trigger('click');
     } else {
       alert('Finish the questions first');
     }
