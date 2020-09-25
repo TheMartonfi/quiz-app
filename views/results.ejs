@@ -29,17 +29,18 @@
               <% } else if (averageTime.average_time.seconds < 10) { %>
                 <% averageTime.average_time.seconds = '0' + averageTime.average_time.seconds %>
               <% } %>
+              <!-- This check needs to be different -->
               <% if (!averageTime.average_time.minutes) { %>
                 <% averageTime.average_time['minutes'] = '00' %>
-              <% } else if (averageTime.average_time.minutes < 10) { %>
+              <% } else if (averageTime.average_time.minutes < 10 && averageTime.average_time.minutes !== '00') { %>
                 <% averageTime.average_time.minutes = '0' + averageTime.average_time.minutes %>
               <% } %>
               <% if (!averageTime.average_time.hours) { %>
                 <% averageTime.average_time['hours'] = '00' %>
-              <% } else if (averageTime.average_time.hours < 10) { %>
+              <% } else if (averageTime.average_time.hours < 10 && averageTime.average_time.hours !== '00') { %>
                 <% averageTime.average_time.hours = '0' + averageTime.average_time.hours %>
               <% } %>
-              <h4>Average Time Spent: 00:<%= averageTime.average_time.minutes %>:<%= averageTime.average_time.seconds %></h4>
+              <h4>Average Time Spent: <%= averageTime.average_time.hours %>:<%= averageTime.average_time.minutes %>:<%= averageTime.average_time.seconds %></h4>
             <% } %>
           <% } %>
           <h4 class='result-score'>
