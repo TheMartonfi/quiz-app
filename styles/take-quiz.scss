@@ -2,12 +2,12 @@
   @extend %timer;
   color: white;
   }
-  
+
   #red-timer {
     @extend %timer;
     color: red;
   }
-  
+
 
 #take-quiz {
   @extend %flex-center;
@@ -120,6 +120,8 @@ input {
   position: absolute;
   z-index: 0;
   font-size: 5em;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
 }
 img {
   max-width: 100%;
