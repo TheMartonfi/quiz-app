@@ -1,6 +1,6 @@
 # Quiz App Project
 
-Quiz App is a full stack web application that uses HTML, SCSS, JavaScript, jQuery, and Node that allows users to make quizzes, play quizzes and share your results with friends. Results include statistics like average time to complete a quiz and average score for each quiz. You can also give a rating to quizzes and quizzes are sorted by rating on the home page. You can also search for specific quizzes if you find there's too many options to choose from!
+Quiz App is a full stack web application that uses HTML, SCSS, JavaScript, jQuery, PostgreSQL, and Node that allows users to make quizzes, play quizzes and share your results with friends. Results include statistics like average time to complete a quiz and average score for each quiz. You can also give a rating to quizzes and quizzes are sorted by rating on the home page. You can also search for specific quizzes if you find there's too many options to choose from!
 
 ## Getting Started
 
